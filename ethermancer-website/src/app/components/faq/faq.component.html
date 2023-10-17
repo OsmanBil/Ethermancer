@@ -1,0 +1,12 @@
+<div class="faq-container">
+  <h1>Frequently Asked Questions</h1>
+  <div class="faq-item" *ngFor="let faq of faqs">
+    <div class="faq-question" (click)="toggleAnswer(faq.id)">
+      <span>{{ faq.question }}</span>
+      <span class="toggle-icon">{{ faq.showAnswer ? '-' : '+' }}</span>
+    </div>
+    <div class="faq-answer" *ngIf="faq.showAnswer">
+      {{ faq.answer }}
+    </div>
+  </div>
+</div>

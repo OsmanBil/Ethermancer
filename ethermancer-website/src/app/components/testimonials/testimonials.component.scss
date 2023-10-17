@@ -1,0 +1,59 @@
+// Variables
+$main-bg-color: rgb(1, 1, 81);
+$main-bg-overlay: rgb(1, 1, 155);
+$card-color: white;
+$subtitle-color: #ccc;
+$text-color: #eee;
+
+.testimonials-container {
+  background: url('/assets/img/bg-portfolio.jpg') top center no-repeat,
+              $main-bg-overlay;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+  
+  h1 {
+    color: $card-color;
+  }
+  
+  .card {
+    margin: 12px;
+    background-color: transparent;
+    
+    &-in-carousel {
+      .card-body {
+        color: $card-color;
+        
+        .card-title, .card-text {
+          color: $card-color;
+        }
+        
+        .card-subtitle {
+          color: $subtitle-color;
+        }
+      }
+      
+      width: 18rem;
+      margin: 0 1rem;
+    }
+  }
+  
+  mdb-carousel-item {
+    padding-bottom: 60px;
+  }
+  
+  .card-container {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,32 @@
+.subscribe-container {
+    background-color: #1a1a1a;
+    position: relative;
+    text-align: center;
+    padding: 25px;
+    z-index: 2; /* higher z-index than the footer to overlay it */
+
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+        .btn{
+      
+        }
+
+        .btn-yellow {
+            color: white !important;
+            background-color: #eeae20 !important;
+            border-color: #eeae20 !important;
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            
+        }
+        
+        .btn-yellow:hover {
+            background-color: #ffd700 !important;
+            border-color: #eeae20 !important;
+        }
+    }
+}

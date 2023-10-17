@@ -1,0 +1,121 @@
+// Variables
+$container-padding: 64px;
+$top-padding: 80px;
+$bottom-padding: 100px;
+
+.about-container {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+}
+
+.card {
+    max-width: 400px !important;
+}
+
+.about-top-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: $top-padding;
+    height: 90vh;
+    box-sizing: border-box;
+}
+
+.about-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding-bottom: $bottom-padding;
+}
+
+.about-bottom-middle {
+    text-align: center;
+    transform: rotate(270deg);
+    grid-column: 2;
+    text-align: center;
+}
+
+.about-left {
+    width: 50vw;
+    padding: 24px;
+}
+
+.about-right {
+    width: 50vw;
+    padding: 24px;
+}
+
+.crypto-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.padding-right {
+    padding-right: 24px;
+}
+
+
+@media (max-width: 850px) {
+    .about-left {
+        width: auto;
+        padding: auto;
+    }
+
+    .card {
+        max-height: 450px !important;
+        min-width: 300px;
+    }
+
+    .about-top-box {
+        margin-top: 64px;
+        margin-bottom: 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-right {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-bottom {
+        display: flex;
+        flex-direction: column;
+        padding-top: 64px;
+    }
+
+    .about-bottom-middle {
+        display: none;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .txt-collect {
+        display: none;
+    }
+
+    .about-top-box {
+        margin-top: 100px;
+
+    }
+
+    .about-left {
+        width: auto;
+        padding: auto;
+    }
+}

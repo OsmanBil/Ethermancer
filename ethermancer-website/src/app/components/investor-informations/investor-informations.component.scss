@@ -1,0 +1,16 @@
+.investorInfo-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 100%;
+}
+
+.card{
+    margin: 12px;
+    min-width: 200px;
+}

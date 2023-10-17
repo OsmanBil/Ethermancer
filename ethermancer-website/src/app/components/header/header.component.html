@@ -1,0 +1,93 @@
+<header [ngClass]="{'transparent-bg': shouldApplyTransparentBg}">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand text-light" href="#">EtherMancer</a>
+            <button *ngIf="!isMainMenuOpen" (click)="toggleMainMenu()" class="navbar-toggler menu-open" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <div class="inner-toggler"></div>
+                </span>
+            </button>
+            <button *ngIf="isMainMenuOpen" (click)="toggleMainMenu()" class="navbar-toggler menu-closed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-light">
+                    <i class="bi bi-x fs-1"></i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <!-- About us -->
+                    <li class="nav-item dropdown" (click)="toggleMenu('about'); trackClickEvent('Menu', 'About') ; $event.preventDefault()">
+                        <a class="nav-link dropdown-toggle active text-light" href="#" id="aboutDropdown" role="button">
+                            About us
+                        </a>
+                        <ul *ngIf="isMenuOpen['about']" class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('about'); linkClicked('about'); $event.preventDefault()">About</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('whyUs'); $event.preventDefault()">Why us</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('team'); $event.preventDefault()">Team</a></li>
+                        </ul>
+                    </li>
+                    <!-- Product & Services -->
+                    <li class="nav-item dropdown" (click)="toggleMenu('products') ; $event.preventDefault()">
+                        <a class="nav-link dropdown-toggle active text-light" href="#" id="productsDropdown"
+                            role="button">
+                            Product & Services
+                        </a>
+                        <ul *ngIf="isMenuOpen['products']" class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('systems'); $event.preventDefault()">Systems</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('keyFeatures'); $event.preventDefault()">Key Features</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('walkthrough'); $event.preventDefault()">Walkthrough</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Investors -->
+                    <li class="nav-item dropdown" (click)="toggleMenu('investors') ; $event.preventDefault()">
+                        <a class="nav-link dropdown-toggle active text-light" href="#" id="investorsDropdown"
+                            role="button">
+                            Investors
+                        </a>
+                        <ul *ngIf="isMenuOpen['investors']" class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('investorInformations'); $event.preventDefault()">Investor
+                                    Informations</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('whitepaper'); $event.preventDefault()">Whitepaper</a></li>
+                        </ul>
+                    </li>
+                    <!-- More -->
+                    <li class="nav-item dropdown" (click)="toggleMenu('more') ; $event.preventDefault()">
+                        <a class="nav-link dropdown-toggle active text-light" href="#" id="moreDropdown" role="button">
+                            More
+                        </a>
+                        <ul *ngIf="isMenuOpen['more']" class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('testimonials'); $event.preventDefault()">Testimonials</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('roadmap'); $event.preventDefault()">Roadmap</a></li>
+                            <li><a class="dropdown-item" href="#"
+                                    (click)="scrollToElement('faq'); $event.preventDefault()">Faq</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav d-none d-lg-block">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-yellow text-dark" routerLink="/to-ethermancer" target="_blank">To
+                            Ethermancer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,49 @@
+<section class='about-container'>
+    <section class='about-top-box'>
+        <article class='about-left'>
+            <div class='text-light'>
+                <h1 class='display-1'>Ethermancer</h1>
+            </div>
+            <div class='text-light'>Ethermancer is an Ethereum trading bot that leverages multiple analysis strategies,
+                such as moving averages, Bollinger Bands, and RSI, alongside artificial intelligence. It automatically
+                analyzes, buys, and sells to optimize your trading experience.</div>
+            <div class='text-light mt-3 d-flex align-items-center justify-content-center'>
+                <div class='padding-right'><a class="btn btn-primary" (click)="scrollToElement('systems')">Learn
+                        more</a></div>
+                <div><a routerLink="/whitepaper-document" class="btn btn-primary" target="_blank">White paper</a></div>
+            </div>
+        </article>
+        <article class='about-right'>
+            <div class="card text-center mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">Ethermancer is on Alpha-Phase</h5>
+                    <p class="card-text text-dark">Beta starts soon</p>
+                    <a routerLink="/to-ethermancer" class="btn btn-primary" target="_blank">Join Ethermancer now</a>
+                    <br />
+                    <br />
+                    <div *ngIf="isLoading" class="d-flex justify-content-center">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <h5 class='text-dark'>Ethermancer is collecting data</h5>
+                    <div class='text-dark txt-collect'>Ethermancer<div>Collects data, Analyzes, Trades.</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="about-bottom">
+        <section class="about-bottom-left text-light">
+            <p>Revolutionary Artificial Intelligence-Based Ethereum Trading Bot!</p>
+        </section>
+        <section class="about-bottom-middle text-light">
+            <p>About us -------------</p>
+        </section>
+        <section class="about-bottom-right text-light">
+            <p>Ethermancer collects data to improve its trading algorithms. Utilizing machine learning and classic
+                strategies, it adapts to market fluctuations for optimized buy and sell actions. Now in beta, it aims to
+                be your go-to solution for intelligent Ethereum trading.</p>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,16 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app-component-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgb(7, 39, 99);
+}
+
+
+.app-component-content {
+  flex-grow: 1;
+}

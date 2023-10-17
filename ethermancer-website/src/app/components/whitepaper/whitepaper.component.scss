@@ -1,0 +1,38 @@
+// Variables
+$main-bg-color: rgb(1, 1, 155);
+$font-color: white;
+$padding-size: 30px;
+
+.whitepaper-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+    padding: $padding-size;
+    width: 100%;
+    background-image: url('/assets/img/bg-whitepaper.jpg');
+    background-attachment: local;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(1, 1, 155);
+    color: $font-color;
+
+    img {
+        padding-right: 16px;
+    }
+
+    .btn-yellow {
+        color: white !important;
+        background-color: #eeae20 !important;
+        border-color: #eeae20 !important;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        padding: 6px;
+        max-width: 200px;
+    }
+
+    .btn-yellow:hover {
+        background-color: #ffd700 !important;
+        border-color: #eeae20 !important;
+    }
+}

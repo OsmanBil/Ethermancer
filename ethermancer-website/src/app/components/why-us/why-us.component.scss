@@ -1,0 +1,90 @@
+// Variables
+$main-bg-color: rgb(1, 1, 155);
+$font-color: white;
+$padding-size: 30px;
+
+.why-us-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: $padding-size;
+    padding-left: $padding-size;
+    width: 100%;
+    background-image: url('/assets/img/half-about-bg.jpg');
+    background-attachment: local;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $main-bg-color;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.why-us-left {
+    width: 100%;
+    display: flex;
+}
+
+.why-us-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.why-us-right .card {
+    width: 50%;
+    margin-left: auto;  /* automatischer Abstand zur linken Seite, sodass die Karte rechtsbündig ist */
+}
+
+
+.w-50-p {
+    width: 50vw;
+}
+
+.custom-text-light {
+    color: #adadad;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    padding-left: 0;
+}
+
+@media (max-width: 850px) {
+    .w-50-p {
+        width: 80vw;
+    
+    }
+
+    .why-us-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .why-us-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .why-us-right .card {
+        width: 100%;
+        padding: 0;
+        width: 85vw;
+        
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+    }
+
+}

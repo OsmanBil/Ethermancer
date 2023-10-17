@@ -1,0 +1,164 @@
+// Definie variables
+$main-bg-color: rgba(0, 0, 0, 0.8);
+$hover-bg-color: rgba(0, 0, 0, 0.95);
+$main-text-color: #FFF;
+
+.transparent-bg {
+    background-color: $main-bg-color;
+}
+
+.normal-bg {
+    background-color: black !important;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+
+    &:hover::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 7px;
+        width: 50%;
+        height: 2px;
+        background: white;
+    }
+
+    &:focus {
+        border-bottom: none;
+    }
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    a {
+        color: $main-text-color;
+
+        &:hover {
+            font-weight: bold;
+            background-color: $hover-bg-color;
+            color: $main-text-color;
+        }
+    }
+
+
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    margin-top: 170px;
+}
+
+.navbar-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.nav-item {
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+header {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    transition: background-color 0.5s ease;
+
+    //navbar toggler
+    .navbar-toggler {
+        width: 50px;
+        justify-content: center;
+        border: none;
+        position: relative;
+    }
+
+    .navbar-toggler-icon,
+    .inner-toggler {
+        background-image: none !important;
+    }
+
+    .inner-toggler,
+    .navbar-toggler::before,
+    .navbar-toggler::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 2px;
+        background: white;
+        transform: translate(-50%, -50%);
+    }
+
+    .navbar-toggler::before {
+        margin-top: -10px;
+    }
+
+    .navbar-toggler::after {
+        margin-top: 10px;
+    }
+
+    
+    .menu-closed.navbar-toggler::before {
+        display: none;
+      }
+      
+      .menu-closed.navbar-toggler::after {
+          display: none;
+      }
+      
+
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .btn-yellow {
+        color: $main-text-color !important;
+        background-color: #eeae20 !important;
+        border-color: #eeae20 !important;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        padding: 6px;
+    
+        &:hover {
+            background-color: #ffd700 !important;
+            border-color: #eeae20 !important;
+        }
+    }
+}
+
+@media (max-width: 980px) {
+    header {
+        background-color: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .nav-link:hover::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0px;  /* Startpunkt des Strichs von links */
+        width: 100%; /* Länge des Strichs */
+        height: 2px;
+        background: white;
+      }
+      
+}
+
+
+
+

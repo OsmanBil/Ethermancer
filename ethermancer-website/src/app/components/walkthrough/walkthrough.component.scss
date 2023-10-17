@@ -1,0 +1,40 @@
+// Variables
+$main-bg-color: rgb(1, 1, 155);
+$font-color: white;
+$padding-size: 30px;
+
+.walkthrough-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: $padding-size;
+    width: 100%;
+    background-image: url('/assets/img/banner-bg.jpg');
+    background-attachment: local;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $main-bg-color;
+    color: $font-color;
+}
+
+.walkthrough-steps{
+    display: flex;
+    justify-content: center;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+}
+
+.card{
+    padding: 16px;
+    max-width: 300px;
+    background: transparent;
+    color: $font-color;
+}
+
+@media (max-width: 600px) {
+    .walkthrough-steps {
+        flex-direction: column;
+    }
+}

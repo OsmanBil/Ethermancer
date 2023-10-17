@@ -1,0 +1,35 @@
+.terms-confirmation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.terms-confirmation a {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+.terms-confirmation button {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.terms-confirmation button:hover {
+    background-color: #ffdb4d;
+}
+
+p{
+    margin-bottom: 0;
+}

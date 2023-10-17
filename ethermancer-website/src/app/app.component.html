@@ -1,0 +1,8 @@
+<body>
+  <app-header class="header-container text-center d-flex "></app-header>
+  <div class="router">
+      <router-outlet></router-outlet>
+  </div>
+  <app-terms-confirmation *ngIf="shouldDisplayTermsConfirmation()"></app-terms-confirmation>
+  <app-footer class="bg-dark text-light"></app-footer>
+</body>

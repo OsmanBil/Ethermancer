@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "question": "What is Ethermancer?",
+      "answer": "Ethermancer is an Ethereum trading bot that leverages multiple analysis strategies such as moving averages, Bollinger Bands, and RSI, alongside artificial intelligence. It automatically analyzes, buys, and sells to optimize your trading experience.",
+      "showAnswer": false
+    },
+    {
+      "id": 2,
+      "question": "How do I get started with Ethermancer?",
+      "answer": "To get started, you will need an Ethereum wallet and some ETH to fund your trading activities.",
+      "showAnswer": false
+    },
+    {
+      "id": 3,
+      "question": "Is Ethermancer secure?",
+      "answer": "Security is one of our top priorities. The bot uses industry-standard encryption and security protocols.",
+      "showAnswer": false
+    },
+    {
+      "id": 4,
+      "question": "How does Ethermancer work?",
+      "answer": "Ethermancer leverages multiple trading strategies and AI algorithms to analyze the Ethereum market and execute trades automatically.",
+      "showAnswer": false
+    },
+    {
+      "id": 5,
+      "question": "What are the transaction fees?",
+      "answer": "Transaction fees are primarily dependent on the Ethereum network conditions and any additional service fees you might opt for.",
+      "showAnswer": false
+    },
+    {
+      "id": 6,
+      "question": "How can I contribute to the project?",
+      "answer": "You can contribute by providing feedback, reporting bugs, or even suggesting new features and strategies.",
+      "showAnswer": false
+    },
+    {
+      "id": 7,
+      "question": "Do I need trading experience?",
+      "answer": "While having trading experience can be beneficial, Ethermancer is designed to be user-friendly for both experts and beginners.",
+      "showAnswer": false
+    },
+    {
+      "id": 8,
+      "question": "How do I withdraw my earnings?",
+      "answer": "Earnings can be withdrawn directly to your Ethereum wallet following a simple withdrawal process.",
+      "showAnswer": false
+    },
+    {
+      "id": 9,
+      "question": "Is there customer support?",
+      "answer": "Yes, we offer customer support through various channels such as email, chat, and a support ticket system.",
+      "showAnswer": false
+    },
+    {
+      "id": 10,
+      "question": "Is there a mobile app?",
+      "answer": "Currently, Ethermancer does not have a mobile app. However, the platform is mobile-friendly.",
+      "showAnswer": false
+    }
+  ]
+  

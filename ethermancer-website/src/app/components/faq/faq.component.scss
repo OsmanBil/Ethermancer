@@ -1,0 +1,31 @@
+$faq-background-color: rgb(1, 1, 155);
+$faq-item-border: 1px solid #ccc;
+
+.faq-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  width: 100%;
+  background-image: url('/assets/img/expert-bg.jpg');
+  background-attachment: local;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $faq-background-color;
+  color: white;
+
+  .faq-item {
+    border-bottom: $faq-item-border;
+    margin-bottom: 10px;
+
+    .faq-question {
+      cursor: pointer;
+
+      .toggle-icon {
+        margin-left: 10px;
+      }
+    }
+  }
+}
