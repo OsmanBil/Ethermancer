@@ -1,0 +1,15 @@
+<div class="card m-3" style="width: 18rem;">
+    <a [routerLink]="['/product-details', product.id]"><img class="card-img-top" src="{{ product.url }}" alt="..."></a>
+    <div class="card-body d-flex justify-content-center align-items-center flex-column">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{product.price}} €</p>
+        <select [(ngModel)]="selectedQuantity" class="form-select w-50 mb-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+    </div>
+</div>

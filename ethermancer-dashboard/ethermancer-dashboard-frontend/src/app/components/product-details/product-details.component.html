@@ -1,0 +1,25 @@
+<div class="card mb-3 m-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img class="card-img-top" src="{{ product.url }}" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{product.price}} €</p>
+                <p class="card-text">{{product.description}}</p>
+                <select [(ngModel)]="selectedQuantity" class="form-select w-50 mb-2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div>
+                    <button class="btn btn-primary d-flex flex-column" (click)="addToCart(product)">Add to cart</button>
+                    <a class="btn" routerLink="/product-list"> <-Back to product list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

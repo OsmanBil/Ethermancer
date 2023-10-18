@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm bg-primary">
+  <div class="container">
+    <a class="title active" aria-current="page" routerLink="/">MyStore</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarText">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" routerLink="/product-list">Product-list</a>
+        <a class="nav-link active" routerLink="/shopping-cart">
+          <fa-icon [icon]="faShoppingCart"></fa-icon> Cart
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

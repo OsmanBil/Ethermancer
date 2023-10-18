@@ -1,3 +1,8 @@
 /ethermancer-dashboard/node_modules
 /ethermancer-dashboard/.env
 /ethermancer-dashboard/database.json
+/ethermancer-dashboard/ethermancer-dashboard-backend/node_modules
+/ethermancer-dashboard/ethermancer-dashboard-backend/dist
+/ethermancer-dashboard/ethermancer-dashboard-backend/database.json
+/ethermancer-dashboard/ethermancer-dashboard-frontend/dist
+/ethermancer-dashboard/ethermancer-dashboard-frontend/.angular
