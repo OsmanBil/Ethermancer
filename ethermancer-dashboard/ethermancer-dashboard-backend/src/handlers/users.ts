@@ -90,8 +90,28 @@ const destroy = async (req: Request, res: Response) => {
   }
 };
 
+const login = async (req: Request, res: Response) => {
+  const user = {
+    username: req.body.username,
+    password: req.body.password,
+  };
+  
+  try {
+    const u = await store.authenticate(user.username, user.password);
+    if (u) {
+      const token = jwt.sign({ user: u }, process.env.TOKEN_SECRET as string);
+      res.json(token);
+    } else {
+      res.status(401).send('Invalid login credentials');
+    }
+  } catch (err) {
+    res.status(500).send(`Error during login: ${err}`);
+  }
+};
+
 // Export the users_routes function as a default export so that it can be imported into other files and used to define the routes for the users API
 const users_routes = (app: express.Application) => {
+  app.post('/login', login);
   app.get('/users', authMiddleware, index); // Define the GET route for getting all users
   app.get('/users/:id', authMiddleware, show); // Define the GET route for getting a specific user by ID
   app.post('/users', create); // Define the POST route for creating a new user

@@ -15,6 +15,9 @@ import { ProductComponent } from './components/product/product.component';
 import { CartService } from './services/cart.service';
 import { DecimalPipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ShoppingCartComponent,
     OrderConfirmationComponent,
     ProductComponent,
+    RegisterComponent,
+    LoginComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
