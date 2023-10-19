@@ -98,6 +98,8 @@ const login = async (req: Request, res: Response) => {
   
   try {
     const u = await store.authenticate(user.username, user.password);
+    console.log('Authenticated user:', u);  // <-- Hier wird das zurückgegebene Benutzerobjekt ausgegeben
+
     if (u) {
       const token = jwt.sign({ user: u }, process.env.TOKEN_SECRET as string);
       res.json(token);

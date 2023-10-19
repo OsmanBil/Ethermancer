@@ -27,7 +27,7 @@ export class ShoppingCartComponent implements OnInit {
     private decimalPipe: DecimalPipe,
     private orderService: OrderService,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCart();
@@ -41,16 +41,41 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitForm(): void {
-    const orderData = new Order();
-    orderData.totalAmount = this.getTotalAmount();
-    orderData.fullName = this.fullName;
-    orderData.address = this.address;
-    orderData.creditCardNum = this.creditCardNum;
+    // Erstellen Sie zuerst die Bestellung
+    this.orderService.placeOrder().subscribe(
+      (response) => {
+        console.log('Order created:', response);
+        const orderId = response.id; // Die ID der erstellten Bestellung.
+        console.log("Erzeugte Order ID:", orderId);
+        if (orderId) {
+          // Nun fügen Sie jedes Produkt aus dem Warenkorb zur Bestellung hinzu.
+          for (let item of this.cartItems) {
+            this.orderService.addProductToOrder(orderId, item.product.id, item.quantity).subscribe(
+              (response) => {
+                console.log('Product added to order:', response);
+              },
+              (error) => {
+                console.error('Error adding product to order:', error);
+              }
+            );
+          }
+        } else {
+          console.error('Order ID fehlt in der Backend-Antwort.');
+        }
 
-    this.orderService.setOrderData(orderData);
-    this.router.navigate(['/order-confirmation']);
-    this.cartService.clearCart();
+
+
+
+        // Nachdem alle Produkte hinzugefügt wurden, navigieren Sie zur Bestätigungsseite.
+        this.router.navigate(['/order-confirmation']);
+        this.cartService.clearCart(); // Leeren Sie den Warenkorb, nachdem die Bestellung abgeschlossen ist.
+      },
+      (error) => {
+        console.error('Error creating order:', error);
+      }
+    );
   }
+
 
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
