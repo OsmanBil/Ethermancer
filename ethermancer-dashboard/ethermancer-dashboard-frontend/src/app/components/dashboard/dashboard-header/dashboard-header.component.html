@@ -1,7 +1,9 @@
 <div class="header">
-    <div class="logo">Logo</div>
-    <div class="user" routerLink="/dashboard/profile">
-      <div class="user-name">Surender</div>
-      <div class="user-image">SN</div>
+  <div class="logo">EtherMancer</div>
+  <div class="user" routerLink="/dashboard/profile">
+    <div class="user-name">{{ username }}</div>
+    <div class="user-icon">
+      <fa-icon [icon]="faUser"></fa-icon> 
     </div>
   </div>
+</div>

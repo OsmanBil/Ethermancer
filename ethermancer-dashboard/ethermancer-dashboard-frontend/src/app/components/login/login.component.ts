@@ -1,19 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   loginData = {
     username: '',
     password: ''
   };
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+
+
+  ngOnInit(): void {
+    // Überprüfen Sie beim Laden der Komponente, ob der Benutzer bereits eingeloggt ist.
+    if (this.authService.isLoggedIn()) {
+      // Wenn der Benutzer eingeloggt ist, leiten Sie ihn zum Dashboard weiter.
+      this.router.navigate(['/dashboard']);
+    }
+  }
 
   onLogin() {
     this.userService.loginUser(this.loginData).subscribe(response => {

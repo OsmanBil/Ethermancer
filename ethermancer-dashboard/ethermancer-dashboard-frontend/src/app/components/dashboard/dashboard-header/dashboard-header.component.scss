@@ -1,7 +1,7 @@
 .header {
     height: 70px;
     padding: 20px 50px;
-    background-color: rgb(1, 38, 69);
+    background-color: rgb(8, 40, 66);
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,12 @@
     .user {
       display: flex;
       align-items: center;
+      justify-content: center;
       font-weight: bold;
+      color: white;
+      .user-name{
+        padding-right: 16px;
+      }
       .user-image {
         width: 50px;
         height: 50px;

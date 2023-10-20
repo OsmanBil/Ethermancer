@@ -1,22 +1,23 @@
 <div class="nav-items">
   <div class="nav-item" routerLink="/dashboard/mainDashboard">
-      <fa-icon [icon]="faDashboard"></fa-icon>
-      <span>Dashboard</span>
-    </div>
-    <div class="nav-item" routerLink="/dashboard/bots">
-      <fa-icon [icon]="faLocation"></fa-icon>
-      <span>Bots</span>
-    </div>
-    <div class="nav-item" routerLink="/dashboard/shop">
-      <fa-icon [icon]="faShop"></fa-icon>
-      <span>Shops</span>
-    </div>
-    <div class="nav-item" routerLink="/dashboard/statistics">
-      <fa-icon [icon]="faChartBar"></fa-icon>
-      <span>Statistics</span>
-    </div>
-    Sign out
+    <fa-icon [icon]="faDashboard"></fa-icon>
+    <span>Dashboard</span>
   </div>
-
-
+  <div class="nav-item" routerLink="/dashboard/bots">
+    <fa-icon [icon]="faLocation"></fa-icon>
+    <span>Bots</span>
+  </div>
+  <div class="nav-item" routerLink="/dashboard/shop">
+    <fa-icon [icon]="faShop"></fa-icon>
+    <span>Shops</span>
+  </div>
+  <div class="nav-item" routerLink="/dashboard/statistics">
+    <fa-icon [icon]="faChartBar"></fa-icon>
+    <span>Statistics</span>
+  </div>
+  <div class="nav-item bg-gray" (click)="logout()">
+    <fa-icon [icon]="faSignOutAlt"></fa-icon>
+    <span>Logout</span>
+  </div>
   
+</div>

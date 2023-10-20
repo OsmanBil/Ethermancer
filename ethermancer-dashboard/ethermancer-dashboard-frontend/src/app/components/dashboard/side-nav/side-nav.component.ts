@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import {
   faDashboard,
   faLocation,
@@ -8,6 +9,7 @@ import {
   faChartBar,
   faContactBook,
   faHand,
+  faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -25,10 +27,16 @@ export class SideNavComponent implements OnInit {
   faChartBar = faChartBar;
   faContactBook = faContactBook;
   faHand = faHand;
+  faSignOutAlt = faSignOutAlt;
 
-  constructor() { }
+  constructor(private authService: AuthService) { } // oder wie auch immer Ihr Service heißt
+
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
