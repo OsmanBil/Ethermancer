@@ -18,6 +18,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { SideNavComponent } from './components/dashboard/side-nav/side-nav.component';
+import { MainComponent } from './components/dashboard/main/main.component';
+import { TopWidgetsComponent } from './components/dashboard/top-widgets/top-widgets.component';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { DashboardHeaderComponent } from './components/dashboard/dashboard-header/dashboard-header.component';
+import { ProfileComponent } from './components/dashboard/profile/profile.component';
+import { SettingsComponent } from './components/dashboard/settings/settings.component';
+import { StatisticsComponent } from './components/dashboard/statistics/statistics.component';
+import { BotsComponent } from './components/dashboard/bots/bots.component';
+import { MainDashboardComponent } from './components/dashboard/main-dashboard/main-dashboard.component';
+import { ShopComponent } from './components/shop/shop/shop.component';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -32,6 +44,18 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     RegisterComponent,
     LoginComponent,
     UserDetailsComponent,
+    SideNavComponent,
+    MainComponent,
+    TopWidgetsComponent,
+    DashboardComponent,
+    DashboardHeaderComponent,
+    ProfileComponent,
+    SettingsComponent,
+    StatisticsComponent,
+    BotsComponent,
+    MainDashboardComponent,
+    ShopComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -40,6 +64,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
+    ChartModule
   ],
   providers: [CartService, DecimalPipe],
   bootstrap: [AppComponent],

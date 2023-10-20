@@ -1,0 +1,25 @@
+<div class="chart-main-container">
+    <div class="widget-container">
+        <div class="widget green">
+            <div class="icon">
+                <fa-icon [icon]="faLocation"></fa-icon>
+            </div>
+            <div class="value">
+                <div class="top">3</div>
+                <div class="bottom">Bots</div>
+            </div>
+        </div>
+        <div class="widget blue">
+            <div class="icon">
+                <fa-icon [icon]="faMoneyBill"></fa-icon>
+            </div>
+            <div class="value">
+                <div class="top">941</div>
+                <div class="bottom">Total profit</div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-container-line" [chart]="chart"></div>
+    <div class="chart-container-line" [chart]="chart1"></div>
+
+</div>

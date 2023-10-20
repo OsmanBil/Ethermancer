@@ -19,7 +19,7 @@ export class LoginComponent {
     this.userService.loginUser(this.loginData).subscribe(response => {
       localStorage.setItem('jwtToken', response);
       console.log('Token saved:', response);
-      this.router.navigate(['/product-list']); // Redirection to the dashboard after successful registration
+      this.router.navigate(['/dashboard']); // Redirection to the dashboard after successful registration
     }, error => {
       console.error('Login failed:', error);
     });

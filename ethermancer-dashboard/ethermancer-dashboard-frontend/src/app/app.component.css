@@ -1,8 +1,5 @@
 .router {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 0 auto;
+  
 }
 
 body {
@@ -11,6 +8,6 @@ body {
     min-height: 100vh;
 }
 
-app-footer {
+/* app-footer {
     flex-shrink: 0;
-}
+} */
