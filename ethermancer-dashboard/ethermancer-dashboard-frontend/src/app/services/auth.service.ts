@@ -26,7 +26,7 @@ export class AuthService  {
     if (token) {
       const decodedToken = jwt_decode(token) as any;
       const username = decodedToken.user.username.toUpperCase();
-      console.log(username);
+      //console.log(username);
       return username;
     }
     return null;
@@ -37,8 +37,8 @@ export class AuthService  {
     if (token) {
       const decodedToken = jwt_decode(token) as any;
       const name = decodedToken.user.firstname + " " + decodedToken.user.lastname;
-      console.log(decodedToken.user)
-      console.log(name);
+      //console.log(decodedToken.user)
+      //console.log(name);
       return name;
     }
     return null;

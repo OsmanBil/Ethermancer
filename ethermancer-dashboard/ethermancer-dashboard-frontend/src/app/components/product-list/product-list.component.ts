@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
   title: string = 'Products';
@@ -18,15 +18,18 @@ export class ProductListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    // console.log('ngOnInit called');
     this.http.get<Product[]>(`${this.BASE_URL}/products`).subscribe(
       (jsonData: Product[]) => {
         this.products = jsonData;
+        // console.log('Fetched products:', this.products); // Log the fetched products
       },
       (error: unknown) => {
-        console.error('Failed to fetch the product data:', error);
+        // console.error('Failed to fetch the product data:', error);
       },
     );
   }
+
 
   onProductAdded(product: Product): void {
     alert(`The product "${product.name}" has been added to the shopping cart.`);

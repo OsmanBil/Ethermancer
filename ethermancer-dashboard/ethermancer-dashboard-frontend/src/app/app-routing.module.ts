@@ -16,29 +16,39 @@ import { StatisticsComponent } from './components/dashboard/statistics/statistic
 import { ShopComponent } from './components/shop/shop/shop.component';
 import { TermsComponent } from './components/dashboard/terms/terms.component';
 
-const dashboardRoutes: Routes = [
-  { path: '', redirectTo: 'mainDashboard', pathMatch: 'full' },
-  { path: 'mainDashboard', component: MainDashboardComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'bots', component: BotsComponent },
-  { path: 'shop', component: ShopComponent },
-  { path: 'statistics', component: StatisticsComponent },
-  { path: 'terms', component: TermsComponent },
-];
 
-
-const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Leitet Benutzer standardmäßig zur Login-Seite um
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], children: dashboardRoutes },
+const shopRoutes: Routes = [
+  { path: '', redirectTo: 'product-list', pathMatch: 'full' },
   { path: 'product-list', component: ProductListComponent, canActivate: [AuthGuard] },
   { path: 'product-details/:id', component: ProductDetailsComponent, canActivate: [AuthGuard] },
   { path: 'product-details', component: ProductDetailsComponent, canActivate: [AuthGuard] },
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'order-confirmation', component: OrderConfirmationComponent, canActivate: [AuthGuard] },
+  
+];
+
+
+const dashboardRoutes: Routes = [
+  { path: '', redirectTo: 'mainDashboard', pathMatch: 'full' },
+  { path: 'mainDashboard', component: MainDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'bots', component: BotsComponent, canActivate: [AuthGuard] },
+  { path: 'shop', component: ShopComponent , canActivate: [AuthGuard], children: shopRoutes  },
+
   { path: 'terms', component: TermsComponent },
 ];
+
+
+
+
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], children: dashboardRoutes },
+  { path: 'terms', component: TermsComponent },
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

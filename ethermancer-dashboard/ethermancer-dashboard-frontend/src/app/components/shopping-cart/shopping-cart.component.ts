@@ -9,7 +9,7 @@ import { Product } from 'src/app/models/product';
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css'],
+  styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit {
   cartItems: CartItem[] = [];
@@ -31,6 +31,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCart();
+    //console.log('ShoppingCartComponent loaded');
   }
 
   getTotalAmount(): number {
@@ -44,34 +45,34 @@ export class ShoppingCartComponent implements OnInit {
     // Erstellen Sie zuerst die Bestellung
     this.orderService.placeOrder().subscribe(
       (response) => {
-        console.log('Order created:', response);
+        // console.log('Order created:', response);
         const orderId = response.id; // Die ID der erstellten Bestellung.
-        console.log("Erzeugte Order ID:", orderId);
+        // console.log("Erzeugte Order ID:", orderId);
         if (orderId) {
           // Nun fügen Sie jedes Produkt aus dem Warenkorb zur Bestellung hinzu.
           for (let item of this.cartItems) {
             this.orderService.addProductToOrder(orderId, item.product.id, item.quantity).subscribe(
               (response) => {
-                console.log('Product added to order:', response);
+               // console.log('Product added to order:', response);
               },
               (error) => {
-                console.error('Error adding product to order:', error);
+               // console.error('Error adding product to order:', error);
               }
             );
           }
         } else {
-          console.error('Order ID fehlt in der Backend-Antwort.');
+         // console.error('Order ID fehlt in der Backend-Antwort.');
         }
 
 
 
 
         // Nachdem alle Produkte hinzugefügt wurden, navigieren Sie zur Bestätigungsseite.
-        this.router.navigate(['/order-confirmation']);
+        this.router.navigate(['/dashboard/shop/order-confirmation']);
         this.cartService.clearCart(); // Leeren Sie den Warenkorb, nachdem die Bestellung abgeschlossen ist.
       },
       (error) => {
-        console.error('Error creating order:', error);
+       // console.error('Error creating order:', error);
       }
     );
   }

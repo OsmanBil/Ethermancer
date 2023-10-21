@@ -5,7 +5,7 @@ import { Order } from '../../models/order';
 @Component({
   selector: 'app-order-confirmation',
   templateUrl: './order-confirmation.component.html',
-  styleUrls: ['./order-confirmation.component.css'],
+  styleUrls: ['./order-confirmation.component.scss'],
 })
 export class OrderConfirmationComponent {
   orderData: Order | null = null;

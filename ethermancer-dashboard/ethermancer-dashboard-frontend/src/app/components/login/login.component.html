@@ -2,7 +2,7 @@
     <div class="logo" routerLink="/dashboard/mainDashboard">EtherMancer</div>
 </div>
 <div class="login-main-container">
-    
+
     <div class="custom-card-width card top-margin">
         <div class="title">
             <h1>Login</h1>
@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" id="userName" name="userName" required minlength="3"
                     maxlength="16" placeholder="Enter Username" [(ngModel)]="loginData.username"
                     (ngModelChange)="handleuserNameChange($event)" #userNameInput="ngModel">
-                
+
                 <div class="validation-field" *ngIf="userNameInput.invalid && userNameInput.dirty">
                     <!-- <p *ngIf="userNameLength > 0">{{userNameLength}} / 16</p> -->
                     <div *ngIf="userNameInput.errors?.['required']" class="text-danger">
@@ -33,12 +33,13 @@
             </div>
             <!-- Password -->
             <div class="col-md-9">
-                <input type="password" [(ngModel)]="loginData.password" placeholder="Password" name="password" required class="form-control" id="exampleInputPassword1">
+                <input type="password" [(ngModel)]="loginData.password" placeholder="Password" name="password" required
+                    class="form-control" id="exampleInputPassword1">
             </div>
             <div>
                 <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Login</button>
             </div>
-       
+
         </form>
         <p>Don't have an account? <a routerLink="/register">Sign up now</a></p>
     </div>

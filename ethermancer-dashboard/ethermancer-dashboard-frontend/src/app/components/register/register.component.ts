@@ -6,7 +6,7 @@ import { User } from '../../models/user';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
   user: User = {firstName: '', lastName: '', username: '', password: ''};
@@ -38,7 +38,7 @@ export class RegisterComponent {
   onRegister() {
     this.userService.registerUser(this.user).subscribe(response => {
       localStorage.setItem('jwtToken', response);
-      console.log('Token saved:', response);
+      // console.log('Token saved:', response);
       this.router.navigate(['/dashboard']); // Weiterleitung zum Home-Bereich oder einer anderen Seite
     });
   }

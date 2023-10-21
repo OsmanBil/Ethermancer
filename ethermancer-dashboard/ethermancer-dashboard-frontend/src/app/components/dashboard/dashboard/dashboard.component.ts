@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { NavigationEnd, NavigationError, Router } from '@angular/router';
 import { faArrowRight, faArrowLeft  } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,7 +14,15 @@ export class DashboardComponent implements OnInit {
   isArrowVisible = false;
   isNavExpanded = true; // standardmäßig auf '
 
-
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // console.log('Navigation successful!');
+      } else if (event instanceof NavigationError) {
+         // console.error(`Navigation error: ${event.error}`);
+      }
+    });
+  }
 
 
   @HostListener('window:resize', ['$event'])

@@ -5,7 +5,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
+  styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
   @Input() product: Product;
@@ -21,7 +21,7 @@ export class ProductComponent {
     try {
       this.cartService.addToCart(this.product, +this.selectedQuantity);
     } catch (error) {
-      console.error('Error in addToCart:', error);
+      // console.error('Error in addToCart:', error);
     }
     this.productAdded.emit(this.product);
   }

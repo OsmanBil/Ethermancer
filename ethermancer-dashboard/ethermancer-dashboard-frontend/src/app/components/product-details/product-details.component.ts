@@ -6,7 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css'],
+  styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
   product: Product;
@@ -38,7 +38,7 @@ export class ProductDetailsComponent {
       const products: Product[] = await response.json();
       this.product = products.find((product: Product) => product.id === id)!;
     } catch (error: unknown) {
-      console.error('There was a problem:', error);
+      // console.error('There was a problem:', error);
     }
   }
 }

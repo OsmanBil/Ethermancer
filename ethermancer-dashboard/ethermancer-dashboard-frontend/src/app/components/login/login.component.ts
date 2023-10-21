@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
   loginData = {
@@ -40,10 +40,10 @@ export class LoginComponent implements OnInit{
   onLogin() {
     this.userService.loginUser(this.loginData).subscribe(response => {
       localStorage.setItem('jwtToken', response);
-      console.log('Token saved:', response);
+      // console.log('Token saved:', response);
       this.router.navigate(['/dashboard']); // Redirection to the dashboard after successful registration
     }, error => {
-      console.error('Login failed:', error);
+      // console.error('Login failed:', error);
     });
   }
 
