@@ -37,6 +37,7 @@ const routes: Routes = [
   { path: 'product-details', component: ProductDetailsComponent, canActivate: [AuthGuard] },
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'order-confirmation', component: OrderConfirmationComponent, canActivate: [AuthGuard] },
+  { path: 'terms', component: TermsComponent },
 ];
 
 @NgModule({

@@ -14,6 +14,18 @@ export class LoginComponent implements OnInit{
     password: ''
   };
 
+  // Form variables
+  userName: string = '';
+  lastName: string = '';
+  email: string = '';
+
+   // Form validation variables
+   userNameLength: number = 0;
+   lastNameLength: number = 0;
+   emailLength: number = 0;
+   emailValid: boolean = false;
+   datenschutzAccepted: boolean = false;
+
   constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
 
 
@@ -34,4 +46,25 @@ export class LoginComponent implements OnInit{
       console.error('Login failed:', error);
     });
   }
+
+  // Handle Form Changes
+  handleuserNameChange(newValue: string): void {
+    this.userNameLength = newValue.length;
+  }
+  handleLastNameChange(newValue: string): void {
+    this.userNameLength = newValue.length;
+  }
+  handleEmailChange(newValue: string): void {
+    this.emailLength = newValue.length;
+    // Einfache Überprüfung auf ein gültiges E-Mail-Format
+    this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(newValue);
+  }
+  handleDatenschutzChange(newValue: boolean): void {
+    this.datenschutzAccepted = newValue;
+  }
+
+  submitForm(){
+    
+  }
+
 }

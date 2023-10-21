@@ -1,1 +1,78 @@
-<p>bots works!</p>
+<div class="bots-main-container">
+    <div class="container mt-5" *ngIf="showBotCard1">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            Ethereum Trading Bot
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="card-title">Bot Name: <span class="text-info">EtherBot - Normal</span></h5>
+                <p class="card-text">
+                    Description: This bot uses advanced algorithms to trade normal and automatically on Ethereum for you.
+                </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Version: v2.2.2</li>
+                  <li class="list-group-item">Bought am: 16.10.2023</li>
+                  <li class="list-group-item">Status: <span class="badge bg-success">Aktiv</span></li>
+                  <li class="list-group-item">Profit: <span class="text-success">+1.34 ETH</span></li>
+                </ul>
+                <a class="btn btn-primary mt-3" (click)="closeBot1()">Close bot</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container mt-5" *ngIf="showBotCard2">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            Ethereum Trading Bot
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="card-title">Bot Name: <span class="text-info">EtherBot - Aggressive</span></h5>
+                <p class="card-text">
+                    Description: This bot uses advanced algorithms to trade aggressively and automatically on Ethereum for you.
+                </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Version: v2.3.4</li>
+                  <li class="list-group-item">Bought am: 20.10.2023</li>
+                  <li class="list-group-item">Status: <span class="badge bg-success">Aktiv</span></li>
+                  <li class="list-group-item">Profit: <span class="text-success">+12.34 ETH</span></li>
+                </ul>
+                <a class="btn btn-primary mt-3" (click)="closeBot2()">Close bot</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container mt-5" *ngIf="showBotCard3">
+        <div class="card">
+          <div class="card-header bg-dark text-white">
+            Ethereum Trading Bot
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="card-title">Bot Name: <span class="text-info">EtherBot - Reserved</span></h5>
+                <p class="card-text">
+                    Description: This bot uses advanced algorithms to trade reserved and automatically on Ethereum for you.
+                </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Version: v2.3.1</li>
+                  <li class="list-group-item">Bought am: 18.10.2023</li>
+                  <li class="list-group-item">Status: <span class="badge bg-success">Aktiv</span></li>
+                  <li class="list-group-item">Profit: <span class="text-success">+0.34 ETH</span></li>
+                </ul>
+                <a class="btn btn-primary mt-3" (click)="closeBot3()">Close bot</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+</div>

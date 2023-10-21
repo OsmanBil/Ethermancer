@@ -1,8 +1,107 @@
-<form (submit)="onRegister()">
-    <input type="text" [(ngModel)]="user.firstName" placeholder="First Name" name="firstName" required>
-    <input type="text" [(ngModel)]="user.lastName" placeholder="Last Name" name="lastName" required>
-    <input type="text" [(ngModel)]="user.username" placeholder="Username" name="username" required>
-    <input type="password" [(ngModel)]="user.password" placeholder="Password" name="password" required>
-    <button type="submit">Register</button>
-  </form>
-  
+<div class="header">
+  <div class="logo" routerLink="/dashboard/mainDashboard">EtherMancer</div>
+</div>
+<div class="login-main-container">
+
+  <div class="custom-card-width card top-margin">
+    <div class="title">
+      <h1>Sign up</h1>
+      <p>Please sign up to use the Ethermancer trading bot</p>
+    </div>
+    <form #form="ngForm" class="row g-3" (ngSubmit)="onRegister()">
+      <!-- First-Name -->
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="firstName" name="firstName" required minlength="3" maxlength="16"
+          placeholder="Enter first name" [(ngModel)]="user.firstName" (ngModelChange)="handleFirstNameChange($event)"
+          #firstNameInput="ngModel">
+        <!-- <p *ngIf="firstNameLength > 0">{{firstNameLength}} / 16</p> -->
+        <div *ngIf="firstNameInput.invalid && firstNameInput.dirty">
+          <div *ngIf="firstNameInput.errors?.['required']" class="text-danger">
+            first Name is required.
+          </div>
+          <div *ngIf="firstNameInput.errors?.['minlength']" class="text-danger">
+            first Name must contain at least 3 characters.
+          </div>
+          <div *ngIf="firstNameInput.errors?.['maxlength']" class="text-danger">
+            first Name must not exceed 16 characters.
+          </div>
+        </div>
+      </div>
+      <!-- Last-Name -->
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="lastName" name="lastName" required minlength="3" maxlength="16"
+          placeholder="Enter last name" [(ngModel)]="user.lastName" (ngModelChange)="handleLastNameChange($event)"
+          #lastNameInput="ngModel">
+        <!-- <p *ngIf="lastNameLength > 0">{{lastNameLength}} / 16</p> -->
+        <div *ngIf="lastNameInput.invalid && lastNameInput.dirty">
+          <div *ngIf="lastNameInput.errors?.['required']" class="text-danger">
+            Last Name is required.
+          </div>
+          <div *ngIf="lastNameInput.errors?.['minlength']" class="text-danger">
+            Last Name must contain at least 3 characters.
+          </div>
+          <div *ngIf="lastNameInput.errors?.['maxlength']" class="text-danger">
+            Last Name must not exceed 16 characters.
+          </div>
+        </div>
+      </div>
+      <!-- user-Name -->
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="userName" name="userName" required minlength="3" maxlength="16"
+          placeholder="Enter Username" [(ngModel)]="user.username" (ngModelChange)="handleuserNameChange($event)"
+          #userNameInput="ngModel">
+        <!-- <p *ngIf="userNameLength > 0">{{userNameLength}} / 16</p> -->
+        <div *ngIf="userNameInput.invalid && userNameInput.dirty">
+          <div *ngIf="userNameInput.errors?.['required']" class="text-danger">
+            Username is required.
+          </div>
+          <div *ngIf="userNameInput.errors?.['minlength']" class="text-danger">
+            Username must contain at least 3 characters.
+          </div>
+          <div *ngIf="userNameInput.errors?.['maxlength']" class="text-danger">
+            Username must not exceed 16 characters.
+          </div>
+        </div>
+      </div>
+      <!-- Password -->
+      <div class="col-md-9">
+        <input type="password" [(ngModel)]="user.password" placeholder="Password" name="password" required required
+          minlength="3" maxlength="16" class="form-control" id="Password" (ngModelChange)="handlePasswordChange($event)"
+          #passwordInput="ngModel">
+        <!-- Änderung des Namens von #passwordLength zu #passwordInput -->
+        <div *ngIf="passwordInput.invalid && passwordInput.dirty">
+          <div *ngIf="passwordInput.errors?.['required']" class="text-danger">
+            Password is required.
+          </div>
+          <div *ngIf="passwordInput.errors?.['minlength']" class="text-danger">
+            Password must contain at least 3 characters.
+          </div>
+          <div *ngIf="passwordInput.errors?.['maxlength']" class="text-danger">
+            Password must not exceed 16 characters.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="datenschutz" name="datenschutz" required
+              [(ngModel)]="datenschutzAccepted" (ngModelChange)="handleDatenschutzChange($event)">
+            <label class="form-check-label" for="datenschutz">
+              Terms <a routerLink="/terms" target="_blank">read</a>
+              and accept
+            </label>
+
+            <div class="invalid-feedback" *ngIf="!datenschutzAccepted">
+              Sie müssen zustimmen, bevor Sie das Formular absenden können.
+            </div>
+          </div>
+        </div>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Register</button>
+
+      </div>
+
+    </form>
+    <p>You have already an account? <a routerLink="/login">Login now</a></p>
+  </div>
+</div>
