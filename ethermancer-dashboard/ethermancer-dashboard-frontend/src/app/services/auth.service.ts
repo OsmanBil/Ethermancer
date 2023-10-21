@@ -32,7 +32,17 @@ export class AuthService  {
     return null;
   }
   
-
+  getLoggedInName(): string | null {
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+      const decodedToken = jwt_decode(token) as any;
+      const name = decodedToken.user.firstname + " " + decodedToken.user.lastname;
+      console.log(decodedToken.user)
+      console.log(name);
+      return name;
+    }
+    return null;
+  }
 
 
 

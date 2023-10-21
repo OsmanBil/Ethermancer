@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
+  constructor(public authService: AuthService) { }
+
+
+  username = this.authService.getLoggedInUserName();
+  name = this.authService.getLoggedInName();
 }

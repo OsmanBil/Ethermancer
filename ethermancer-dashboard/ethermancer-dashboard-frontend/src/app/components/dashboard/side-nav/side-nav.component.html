@@ -1,4 +1,8 @@
-<div class="nav-items">
+<div class="nav-items" *ngIf="isNavExpanded">
+  <div class="nav-item" routerLink="/dashboard/profile">
+    <fa-icon [icon]="faUser"></fa-icon>
+    <span>Profile</span>
+  </div>
   <div class="nav-item" routerLink="/dashboard/mainDashboard">
     <fa-icon [icon]="faDashboard"></fa-icon>
     <span>Dashboard</span>
@@ -11,13 +15,15 @@
     <fa-icon [icon]="faShop"></fa-icon>
     <span>Shops</span>
   </div>
-  <div class="nav-item" routerLink="/dashboard/statistics">
-    <fa-icon [icon]="faChartBar"></fa-icon>
-    <span>Statistics</span>
-  </div>
+
   <div class="nav-item bg-gray" (click)="logout()">
     <fa-icon [icon]="faSignOutAlt"></fa-icon>
     <span>Logout</span>
   </div>
-  
+
+  <div class="nav-footer">
+    <a routerLink="/dashboard/terms">Terms</a>
+    <p>&copy; 2023 EtherMancer</p>
+  </div>
+
 </div>

@@ -1,26 +1,57 @@
 .nav-items {
-    padding-top: 40px;
-    .bg-gray{
-      background-color: rgb(1, 51, 91) !important;
+  display: flex;
+  flex-direction: column; // Stellt sicher, dass Kinder in einer Spalte angeordnet sind
+ 
+
+  padding-top: 40px;
+
+  .bg-gray {
+    background-color: rgb(1, 51, 91) !important;
+  }
+
+  .nav-item {
+    padding: 25px 50px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 900px) {
+      padding: 25px 40px;
     }
-    .nav-item {
-      padding: 25px 50px;
-      cursor: pointer;
+
+    &:hover {
+      background-color: rgb(1, 38, 69);
+    }
+
+    fa-icon {
+      margin-right: 20px;
+      font-size: 22px;
+    }
+
+    span {
+      display: inline;
+
       @media only screen and (max-width: 900px) {
-        padding: 25px 40px;
-      }
-      &:hover {
-        background-color: rgb(1, 38, 69);
-      }
-      fa-icon {
-        margin-right: 20px;
-        font-size: 22px;
-      }
-      span {
-        display: inline;
-        @media only screen and (max-width: 900px) {
-          display: none;
-        }
+        display: none;
       }
     }
   }
+  .nav-footer {
+    margin-top: auto; // Schiebt den Footer nach unten
+    padding: 15px; // Einige Polsterung für den Footer
+    background-color: rgb(1, 38, 69); // Sie können dies an Ihre Designbedürfnisse anpassen
+    text-align: center;
+    a {
+       color: white; // Setzt die Farbe des Links
+       text-decoration: none; // Entfernt die Unterstreichung des Links
+       &:hover {
+          text-decoration: underline; // Fügt die Unterstreichung beim Überfahren wieder hinzu
+       }
+    }
+
+    p {
+      font-size: small;
+       color: white; // Setzt die Farbe des Texts
+       margin-top: 10px; // Ein bisschen Abstand zum Link
+    }
+ }
+
+}

@@ -14,6 +14,7 @@ import { MainDashboardComponent } from './components/dashboard/main-dashboard/ma
 import { BotsComponent } from './components/dashboard/bots/bots.component';
 import { StatisticsComponent } from './components/dashboard/statistics/statistics.component';
 import { ShopComponent } from './components/shop/shop/shop.component';
+import { TermsComponent } from './components/dashboard/terms/terms.component';
 
 const dashboardRoutes: Routes = [
   { path: '', redirectTo: 'mainDashboard', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const dashboardRoutes: Routes = [
   { path: 'bots', component: BotsComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'statistics', component: StatisticsComponent },
+  { path: 'terms', component: TermsComponent },
 ];
 
 

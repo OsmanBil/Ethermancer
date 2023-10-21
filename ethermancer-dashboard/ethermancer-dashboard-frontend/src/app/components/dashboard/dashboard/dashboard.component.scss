@@ -1,26 +1,65 @@
 .main-container {
-    display: flex;
-    background-color: rgb(208, 228, 246);
+  display: flex;
+  background-color: rgb(208, 228, 246);
 
-    .main-content1{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+  .main-content1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .side-nav {
+
+    min-width: 230px;
+    min-height: calc(100vh - 70px);
+    background-color: #113c60;
+    color: #fff;
+    box-shadow: 5px 5px 5px #939393;
+
+    &.collapsed {
+      min-width: 0;
+      width: 0;
+      background-color: transparent;
     }
-    .side-nav {
-      width: 230px;
-      min-width: 230px;
-      min-height: calc(100vh - 70px);
-      background-color: #113c60;
-      color: #fff;
-      box-shadow: 5px 5px 5px #939393;
-      @media only screen and (max-width: 900px) {
-        width: 100px;
-        min-width: 100px;
-      }
+
+    @media only screen and (max-width: 900px) {
+      width: 100px;
+      min-width: 100px;
     }
-    .main {
-      padding: 30px;
+
+
+  }
+
+  .main {
+    padding: 30px;
+  }
+
+  .arrow-toggle {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding-top: 35px;
+
+    background-color: #113c60; // Hintergrundfarbe nach Wunsch anpassen
+    clip-path: polygon(0 0, 25% 30%, 25% 70%, 0% 100%);
+    width: 80px; // Breite nach Wunsch anpassen
+    height: 100px; // Höhe nach Wunsch anpassen
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &:hover {
+      background-color: rgb(1, 38, 69);
+    }
+
+    @media only screen and (max-width: 500px) {
+      display: block;
     }
   }
+
+}

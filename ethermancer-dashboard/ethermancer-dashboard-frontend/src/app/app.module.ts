@@ -30,6 +30,7 @@ import { BotsComponent } from './components/dashboard/bots/bots.component';
 import { MainDashboardComponent } from './components/dashboard/main-dashboard/main-dashboard.component';
 import { ShopComponent } from './components/shop/shop/shop.component';
 import { ChartModule } from 'angular-highcharts';
+import { TermsComponent } from './components/dashboard/terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ChartModule } from 'angular-highcharts';
     BotsComponent,
     MainDashboardComponent,
     ShopComponent,
+    TermsComponent,
     
   ],
   imports: [

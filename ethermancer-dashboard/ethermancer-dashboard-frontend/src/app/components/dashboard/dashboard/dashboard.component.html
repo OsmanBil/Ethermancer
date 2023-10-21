@@ -1,7 +1,13 @@
 <app-dashboard-header></app-dashboard-header>
 
 <div class="main-container">
-    <app-side-nav class="side-nav"></app-side-nav>
+    <app-side-nav class="side-nav" [isNavExpanded]="isNavExpanded" [class.collapsed]="!isNavExpanded"></app-side-nav>
+
+
+    <div class="arrow-toggle" [style.left]="getArrowPosition()" *ngIf="isArrowVisible" (click)="toggleNav()">
+        <fa-icon [icon]="isNavExpanded ? faArrowLeft : faArrowRight"></fa-icon>
+    </div>
+
     <div class="main-content1">
         <router-outlet></router-outlet>
     </div>

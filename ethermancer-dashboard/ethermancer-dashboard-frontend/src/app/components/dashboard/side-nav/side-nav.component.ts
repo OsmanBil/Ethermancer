@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import {
   faDashboard,
@@ -9,7 +9,9 @@ import {
   faChartBar,
   faContactBook,
   faHand,
-  faSignOutAlt
+  faSignOutAlt,
+  faArrowRight,
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -17,7 +19,9 @@ import {
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss']
 })
-export class SideNavComponent implements OnInit {
+export class SideNavComponent  {
+
+  @Input() isNavExpanded: boolean | undefined;
 
   faDashboard = faDashboard;
   faLocation = faLocation;
@@ -28,15 +32,19 @@ export class SideNavComponent implements OnInit {
   faContactBook = faContactBook;
   faHand = faHand;
   faSignOutAlt = faSignOutAlt;
+  faArrowRight = faArrowRight;
+  faUser = faUser;
+ 
+
 
   constructor(private authService: AuthService) { } // oder wie auch immer Ihr Service heißt
 
 
-  ngOnInit(): void {
-  }
-
   logout() {
     this.authService.logout();
   }
+
+
+
 
 }
