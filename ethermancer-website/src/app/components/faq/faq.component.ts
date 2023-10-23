@@ -17,8 +17,8 @@ export class FaqComponent implements OnInit {
 
   async loadData(): Promise<void> {
     try {
-      const response = await fetch('./assets/datas/faq.json');
-      console.log('Status:', response.status, response.statusText); // Zum Debuggen
+      const response = await fetch('../../../assets/datas/faq.json');
+     // console.log('Status:', response.status, response.statusText); 
       if (!response.ok) {
         throw new Error(
           `Network response was not ok, status: ${response.status}, statusText: ${response.statusText}`,
@@ -28,7 +28,7 @@ export class FaqComponent implements OnInit {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      this.faqs = await response.json(); // Daten in die Klassenvariable speichern
+      this.faqs = await response.json();
     } catch (error: unknown) {
       console.error('There was a problem:', error);
     }

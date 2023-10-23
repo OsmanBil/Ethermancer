@@ -15,6 +15,8 @@ const PORT: string | number = process.env.PORT || 3000;
 
 const corsOptions = {
   origin: process.env.CORS_ORIGIN || 'http://localhost:4200',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
   optionsSuccessStatus: 200,
 };
 

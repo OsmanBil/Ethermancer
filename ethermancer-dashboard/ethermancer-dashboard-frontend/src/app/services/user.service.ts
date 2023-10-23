@@ -7,7 +7,9 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private BASE_URL = 'http://localhost:3000';
+   private BASE_URL = 'http://localhost:3000';
+  // private BASE_URL = 'http://ethermancer-dashboard-env.eba-7mhmes8r.us-east-1.elasticbeanstalk.com';
+
 
   constructor(private http: HttpClient) { }
 

@@ -36,6 +36,7 @@ export class RegisterComponent {
   constructor(private userService: UserService, private router: Router) { } // Injizieren Sie den Router
 
   onRegister() {
+    console.log('User being sent:', this.user); // Hier wird das `user`-Objekt ausgegeben.
     this.userService.registerUser(this.user).subscribe(response => {
       localStorage.setItem('jwtToken', response);
       // console.log('Token saved:', response);

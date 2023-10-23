@@ -8,6 +8,9 @@ import { Order } from '../models/order';
 export class OrderService {
   private baseUrl: string = 'http://localhost:3000/orders';
 
+  // private baseUrl: string = 'http://ethermancer-dashboard-env.eba-7mhmes8r.us-east-1.elasticbeanstalk.com/orders';
+
+
   private orderData: Order | null = null;
 
   constructor(private http: HttpClient) { }
