@@ -31,7 +31,7 @@ jobs:
           command: aws s3 cp application.zip s3://awstestbucketfordb/application.zip
       - run:
            name: Deploy Back-End
-           command: dashboard-backend:deploy
+           command: npm run dashboard-backend:deploy
   build-and-deploy-dashboard:
     docker:
       - image: cimg/node:18.18.2
