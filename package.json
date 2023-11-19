@@ -1,0 +1,18 @@
+{
+    "scripts": {
+        "frontend:install": "cd store/store-frontend && npm install -f",
+        "frontend:start": "cd store/store-frontend && npm run start",
+        "frontend:build": "cd store/store-frontend && npm run build",
+        "frontend:prettier": "cd store/store-frontend && npx prettier --write .",
+        "frontend:lint": "cd store/store-frontend && npm run lint",
+        "frontend:deploy": "cd store/store-frontend && chmod +x bin/deploy.sh && bin/deploy.sh",
+
+        "backend:install": "cd store/store-backend && npm install",
+        "backend:build": "cd store/store-backend && npm run build",
+        "backend:test": "cd store/store-backend && npm run test",
+        "backend:start": "cd store/store-backend && npm run start",
+        "backend:lint": "cd store/store-backend && npm run lint",
+        "backend:prettier": "cd store/store-backend && npx prettier --write .",
+        "backend:deploy": "cd store/store-backend && chmod +x bin/deploy.sh && bin/deploy.sh"
+    }
+}

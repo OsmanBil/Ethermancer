@@ -1,0 +1,18 @@
+version: 2.1
+
+orbs:
+  # Platzhalter für Orbs, falls benötigt
+  node: circleci/node@4.1.0
+
+jobs:
+  build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: echo "Hello, World!"
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
