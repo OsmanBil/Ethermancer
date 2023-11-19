@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Define a route handler for the main endpoint ('/') of the server
 app.get('/', function (req, res) {
-  res.json({ message: 'Main Route is working' });
+  res.json({ message: 'Main Route is working!!' });
 });
 
 app.get('/dbtest', async function (req, res) {
