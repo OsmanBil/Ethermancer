@@ -5,7 +5,7 @@ orbs:
   aws-cli: circleci/aws-cli@1.3.1
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-backend:
     docker:
       - image: cimg/node:18.18.2
     steps:
@@ -60,3 +60,4 @@ workflows:
     jobs:
       - build-and-deploy-dashboard
       - build-and-deploy-website
+      - build-and-deploy-backend
