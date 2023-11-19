@@ -18,6 +18,9 @@ jobs:
           name: Zip the Application
           command: zip -r application.zip server.js package.json database.js handlers/ models/ 
       - run:
+          name: Upload to S3
+          command: aws s3 cp application.zip s3://awstestbucketfordb/application.zip
+      - run:
           name: Deploy to Elastic Beanstalk
           command: aws elasticbeanstalk create-application-version --application-name "AWS-Testumgebung" --version-label "v$(date +%Y%m%d%H%M%S)" --source-bundle S3Bucket="awstestbucketfordb",S3Key="application.zip"
       - run:
