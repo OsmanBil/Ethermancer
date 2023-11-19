@@ -12,6 +12,15 @@ jobs:
       - checkout
       - aws-cli/setup
       - run:
+          name: Install Elastic Beanstalk CLI
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y python3-pip
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+            pip3 install awsebcli --upgrade --user
+      - run:
           name: Install Backend.Dependencies
           command: npm run dashboard-backend:install
       - run:
@@ -21,16 +30,8 @@ jobs:
           name: Upload to S3
           command: aws s3 cp application.zip s3://awstestbucketfordb/application.zip
       - run:
-          name: Define Version Label
-          command: echo "export VERSION_LABEL=v$(date +%Y%m%d%H%M%S)" >> $BASH_ENV
-      - run:
-          name: Deploy to Elastic Beanstalk
-          command: aws elasticbeanstalk create-application-version --application-name "AWS-Testumgebung" --version-label "$VERSION_LABEL" --source-bundle S3Bucket="awstestbucketfordb",S3Key="application.zip"
-      - run:
-          name: Update Elastic Beanstalk Environment
-          command: |
-            sleep 20  # Kurze Wartezeit
-            aws elasticbeanstalk update-environment --environment-name "AWS-Testumgebung-env" --version-label "$VERSION_LABEL"
+           name: Deploy Back-End
+           command: dashboard-backend:deploy
   build-and-deploy-dashboard:
     docker:
       - image: cimg/node:18.18.2
