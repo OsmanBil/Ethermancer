@@ -1,18 +1,27 @@
 version: 2.1
 
 orbs:
-  # Platzhalter für Orbs, falls benötigt
   node: circleci/node@4.1.0
+  aws-cli: circleci/aws-cli@1.3.1
 
 jobs:
-  build:
+  build-and-deploy:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:14.17
     steps:
       - checkout
-      - run: echo "Hello, World!"
+      - aws-cli/setup
+      - run:
+          name: Website Install
+          command: npm run website:install
+      - run:
+          name: Website Build
+          command: npm run website:build
+      - run:
+          name: Deploy Website
+          command: npm run website:deploy
 
 workflows:
-  build_and_test:
+  build_and_deploy:
     jobs:
-      - build
+      - build-and-deploy
