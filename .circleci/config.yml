@@ -5,6 +5,24 @@ orbs:
   aws-cli: circleci/aws-cli@1.3.1
 
 jobs:
+  build-and-deploy:
+    docker:
+      - image: cimg/node:18.18.2
+    steps:
+      - checkout
+      - aws-cli/setup
+      - run:
+          name: Install Backend.Dependencies
+          command: npm run dashboard-backend:install
+      - run:
+          name: Zip the Application
+          command: zip -r application.zip server.js package.json database.js handlers/ models/ 
+      - run:
+          name: Deploy to Elastic Beanstalk
+          command: aws elasticbeanstalk create-application-version --application-name "AWS-Testumgebung" --version-label "v$(date +%Y%m%d%H%M%S)" --source-bundle S3Bucket="awstestbucketfordb",S3Key="application.zip"
+      - run:
+          name: Update Elastic Beanstalk Environment
+          command: aws elasticbeanstalk update-environment --environment-name "AWS-Testumgebung-env" --version-label "v$(date +%Y%m%d%H%M%S)"
   build-and-deploy-dashboard:
     docker:
       - image: cimg/node:18.18.2
