@@ -1,20 +1,11 @@
-import Client from '../database';
-import bcrypt from 'bcrypt';
+const Client = require('../database');
+const bcrypt = require('bcrypt');
 
-export type User = {
-  firstName: string;
-  lastName: string;
-  password: string;
-  id?: number;
-  username: string;
-};
+const pepper = 'your-pepper-value';
+const saltRounds = 10;
 
-const pepper = 'your-pepper-value'; // A pepper value used to add extra randomness to password hashing
-const saltRounds: number = 10; // The number of salt rounds used for password hashing
-
-export class UserStore {
-  // Function to get all users from the database
-  async index(): Promise<User[]> {
+class UserStore {
+  async index() {
     try {
       const conn = await Client.connect();
       const sql = 'SELECT * FROM users';
@@ -26,8 +17,7 @@ export class UserStore {
     }
   }
 
-  // Function to get a specific user by ID from the database
-  async show(id: string): Promise<User> {
+  async show(id) {
     try {
       const sql = 'SELECT * FROM users WHERE id=($1)';
       const conn = await Client.connect();
@@ -44,22 +34,15 @@ export class UserStore {
     }
   }
 
-  // Function to create a new user in the database
-  async create(u: User): Promise<User> {
+  async create(u) {
     try {
       if (!u.username || !u.password) {
         throw new Error('Username and password are required.');
       }
       const conn = await Client.connect();
-      const sql =
-        'INSERT INTO users (firstName, lastName, username, password) VALUES($1, $2, $3, $4) RETURNING *';
+      const sql = 'INSERT INTO users (firstName, lastName, username, password) VALUES($1, $2, $3, $4) RETURNING *';
       const hash = bcrypt.hashSync(u.password + pepper, saltRounds);
-      const result = await conn.query(sql, [
-        u.firstName,
-        u.lastName,
-        u.username,
-        hash,
-      ]);
+      const result = await conn.query(sql, [u.firstName, u.lastName, u.username, hash]);
       const user = result.rows[0];
       conn.release();
       return user;
@@ -68,8 +51,7 @@ export class UserStore {
     }
   }
 
-  // Function to update a user's information in the database
-  async update(id: number, updatedUser: Partial<User>): Promise<User | null> {
+  async update(id, updatedUser) {
     try {
       const conn = await Client.connect();
       const existingUser = await this.findById(id);
@@ -77,17 +59,10 @@ export class UserStore {
       if (!existingUser) {
         throw new Error(`User with ID ${id} not found.`);
       }
-      const mergedUser: User = { ...existingUser, ...updatedUser };
-      const sql =
-        'UPDATE users SET firstName = $1, lastName = $2, username = $3, password = $4 WHERE id = $5 RETURNING *';
+      const mergedUser = { ...existingUser, ...updatedUser };
+      const sql = 'UPDATE users SET firstName = $1, lastName = $2, username = $3, password = $4 WHERE id = $5 RETURNING *';
       const hash = bcrypt.hashSync(mergedUser.password + pepper, saltRounds);
-      const result = await conn.query(sql, [
-        mergedUser.firstName,
-        mergedUser.lastName,
-        mergedUser.username,
-        hash,
-        id,
-      ]);
+      const result = await conn.query(sql, [mergedUser.firstName, mergedUser.lastName, mergedUser.username, hash, id]);
       const user = result.rows[0];
       conn.release();
       return user;
@@ -96,8 +71,7 @@ export class UserStore {
     }
   }
 
-  // Function to delete a user from the database by ID
-  async delete(id: string): Promise<User> {
+  async delete(id) {
     try {
       const sql = 'DELETE FROM users WHERE id=($1)';
       const conn = await Client.connect();
@@ -110,8 +84,7 @@ export class UserStore {
     }
   }
 
-  // Function to authenticate a user based on the provided username and password
-  async authenticate(username: string, password: string): Promise<User | null> {
+  async authenticate(username, password) {
     const conn = await Client.connect();
     const sql = 'SELECT * FROM users WHERE username=($1)';
     const result = await conn.query(sql, [username]);
@@ -120,16 +93,14 @@ export class UserStore {
       const user = result.rows[0];
   
       if (bcrypt.compareSync(password + pepper, user.password)) {
-        delete user.password; // Entfernen Sie das Passwortfeld
+        delete user.password;
         return user;
       }
     }
     return null;
   }
-  
 
-  // Function to find a user by ID in the database
-  async findById(id: number): Promise<User | null> {
+  async findById(id) {
     try {
       const conn = await Client.connect();
       const sql = 'SELECT * FROM users WHERE id = $1';
@@ -144,3 +115,5 @@ export class UserStore {
     }
   }
 }
+
+module.exports = { UserStore };

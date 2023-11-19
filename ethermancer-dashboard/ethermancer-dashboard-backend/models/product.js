@@ -1,16 +1,7 @@
-import Client from '../database';
+const Client = require('../database');
 
-export type Product = {
-  id?: number;
-  name: string;
-  description: string;
-  price: number;
-  url: string;
-  quantity: number;
-};
-
-export class ProductStore {
-  async index(): Promise<Product[]> {
+class ProductStore {
+  async index() {
     try {
       const conn = await Client.connect();
       const sql = 'SELECT * FROM products';
@@ -22,7 +13,7 @@ export class ProductStore {
     }
   }
 
-  async show(id: string): Promise<Product> {
+  async show(id) {
     try {
       const sql = 'SELECT * FROM products WHERE id=($1)';
       const conn = await Client.connect();
@@ -34,7 +25,7 @@ export class ProductStore {
     }
   }
 
-  async create(p: Product): Promise<Product> {
+  async create(p) {
     try {
       const conn = await Client.connect();
       const sql =
@@ -53,10 +44,7 @@ export class ProductStore {
     }
   }
 
-  async update(
-    id: number,
-    updatedProduct: Partial<Product>,
-  ): Promise<Product | null> {
+  async update(id, updatedProduct) {
     try {
       const conn = await Client.connect();
       const existingProduct = await this.findById(id);
@@ -64,7 +52,7 @@ export class ProductStore {
       if (!existingProduct) {
         throw new Error(`Product with ID ${id} not found.`);
       }
-      const mergedProduct: Product = { ...existingProduct, ...updatedProduct };
+      const mergedProduct = { ...existingProduct, ...updatedProduct };
       const sql =
         'UPDATE products SET name = $1, description = $2, price = $3, url = $4 WHERE id = $5 RETURNING *';
       const result = await conn.query(sql, [
@@ -82,7 +70,7 @@ export class ProductStore {
     }
   }
 
-  async delete(id: string): Promise<Product> {
+  async delete(id) {
     try {
       const sql = 'DELETE FROM products WHERE id=($1)';
       const conn = await Client.connect();
@@ -95,7 +83,7 @@ export class ProductStore {
     }
   }
 
-  async findById(id: number): Promise<Product | null> {
+  async findById(id) {
     try {
       const conn = await Client.connect();
       const sql = 'SELECT * FROM products WHERE id = $1';
@@ -110,3 +98,7 @@ export class ProductStore {
     }
   }
 }
+
+module.exports = {
+  ProductStore: ProductStore
+};

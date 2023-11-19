@@ -31,6 +31,8 @@ import { MainDashboardComponent } from './components/dashboard/main-dashboard/ma
 import { ShopComponent } from './components/shop/shop/shop.component';
 import { ChartModule } from 'angular-highcharts';
 import { TermsComponent } from './components/dashboard/terms/terms.component';
+import { OrderService } from './services/order.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,7 @@ import { TermsComponent } from './components/dashboard/terms/terms.component';
     FontAwesomeModule,
     ChartModule
   ],
-  providers: [CartService, DecimalPipe],
+  providers: [CartService, DecimalPipe, OrderService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

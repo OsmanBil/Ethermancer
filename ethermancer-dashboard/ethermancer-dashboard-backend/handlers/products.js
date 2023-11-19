@@ -1,20 +1,20 @@
-import express, { Request, Response } from 'express';
-import { Product, ProductStore } from '../models/product';
-import { verifyAuthToken as authMiddleware } from './auth';
+const express = require('express');
+const { ProductStore } = require('../models/product');
+const { verifyAuthToken: authMiddleware } = require('./auth');
 
 const store = new ProductStore();
 
-const index = async (_req: Request, res: Response) => {
+const index = async (_req, res) => {
   try {
     const products = await store.index();
     res.json(products);
   } catch (err) {
-    console.error(err);  // <-- Fügen Sie diese Zeile hinzu
+    console.error(err);
     res.status(500).send('An unexpected error occurred.');
   }
 };
 
-const show = async (req: Request, res: Response) => {
+const show = async (req, res) => {
   const productId = req.params.id;
   try {
     const product = await store.show(productId);
@@ -24,8 +24,8 @@ const show = async (req: Request, res: Response) => {
   }
 };
 
-const create = async (req: Request, res: Response) => {
-  const product: Product = {
+const create = async (req, res) => {
+  const product = {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
@@ -37,14 +37,13 @@ const create = async (req: Request, res: Response) => {
     const newProduct = await store.create(product);
     res.json(newProduct);
   } catch (err) {
-    res.status(400);
-    res.json(err);
+    res.status(400).send(err);
   }
 };
 
-const update = async (req: Request, res: Response) => {
+const update = async (req, res) => {
   const productId = parseInt(req.params.id);
-  const productUpdate: Partial<Product> = {
+  const productUpdate = {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
@@ -56,22 +55,20 @@ const update = async (req: Request, res: Response) => {
     const updatedProduct = await store.update(productId, productUpdate);
     res.json(updatedProduct);
   } catch (err) {
-    res.status(400);
-    res.json(err);
+    res.status(400).send(err);
   }
 };
 
-const destroy = async (req: Request, res: Response) => {
+const destroy = async (req, res) => {
   try {
     const deleted = await store.delete(req.params.id);
     res.json(deleted);
   } catch (err) {
-    res.status(400);
-    res.json(err);
+    res.status(400).send(err);
   }
 };
 
-const products_routes = (app: express.Application) => {
+const products_routes = (app) => {
   app.get('/products', index);
   app.get('/products/:id', show);
   app.post('/products', authMiddleware, create);
@@ -79,4 +76,4 @@ const products_routes = (app: express.Application) => {
   app.delete('/products/:id', authMiddleware, destroy);
 };
 
-export default products_routes;
+module.exports = products_routes;

@@ -1,14 +1,10 @@
-import Client from '../database';
+// CommonJS import style
+const Client = require('../database');
 
-export type Order = {
-  id?: number;
-  user_id: number;
-  status: string;
-};
-
-export class OrderStore {
+// OrderStore class definition
+class OrderStore {
   // Function to get all orders from the database
-  async index(): Promise<Order[]> {
+  async index() {
     try {
       const conn = await Client.connect();
       const sql = 'SELECT * FROM orders';
@@ -21,7 +17,7 @@ export class OrderStore {
   }
 
   // Function to create a new order in the database
-  async create(order: Order): Promise<Order> {
+  async create(order) {
     try {
       const conn = await Client.connect();
       const sql =
@@ -36,7 +32,7 @@ export class OrderStore {
   }
 
   // Function to update the status of an order in the database
-  async update(orderId: number, orderUpdate: Partial<Order>): Promise<Order> {
+  async update(orderId, orderUpdate) {
     try {
       const conn = await Client.connect();
       const sql = 'UPDATE orders SET status=$1 WHERE id=$2 RETURNING *';
@@ -50,7 +46,7 @@ export class OrderStore {
   }
 
   // Function to get a specific order by ID from the database
-  async show(id: string): Promise<Order> {
+  async show(id) {
     try {
       const sql = 'SELECT * FROM orders WHERE id=($1)';
       const conn = await Client.connect();
@@ -63,11 +59,7 @@ export class OrderStore {
   }
 
   // Function to add a product to an order in the database
-  async addProduct(
-    quantity: number,
-    orderId: number,
-    productId: number,
-  ): Promise<Order> {
+  async addProduct(quantity, orderId, productId) {
     try {
       const getOrderSql = 'SELECT status FROM orders WHERE id = $1';
       const insertProductSql =
@@ -99,3 +91,8 @@ export class OrderStore {
     }
   }
 }
+
+// CommonJS export style
+module.exports = {
+  OrderStore: OrderStore
+};

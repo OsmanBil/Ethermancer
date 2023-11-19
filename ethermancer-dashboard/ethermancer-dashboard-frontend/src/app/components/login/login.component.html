@@ -43,4 +43,8 @@
         </form>
         <p>Don't have an account? <a routerLink="/register">Sign up now</a></p>
     </div>
+    <div *ngIf="dbTestStatus === 'error'" class="alert alert-danger">
+        Fehler bei der Verbindung zur Datenbank. Bitte versuchen Sie es später erneut.
+      </div>
+      <p>{{ backendMessage }}</p>
 </div>

@@ -31,6 +31,16 @@ export class AuthService  {
     }
     return null;
   }
+
+  getLoggedInUserId(): number | null {
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+      const decodedToken = jwt_decode(token) as any;
+      const userId = decodedToken.user.id; // Stellen Sie sicher, dass die Struktur des Tokens der Ihrer Anwendung entspricht
+      return userId;
+    }
+    return null;
+  }
   
   getLoggedInName(): string | null {
     const token = localStorage.getItem('jwtToken');
