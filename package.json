@@ -1,5 +1,8 @@
 {
     "scripts": {
+        "dashboard:install": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm install",
+        "dashboard:build": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm run build",
+        "dashboard:deploy": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && chmod +x bin/deploy.sh && bin/deploy.sh",
        
         "website:install": "cd ethermancer-website && npm install",
         "website:build": "cd ethermancer-website && npm run build",

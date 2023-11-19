@@ -5,7 +5,23 @@ orbs:
   aws-cli: circleci/aws-cli@1.3.1
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-dashboard:
+    docker:
+      - image: cimg/node:18.18.2
+    steps:
+      - checkout
+      - aws-cli/setup
+      - run:
+          name: Dashboard Install
+          command: npm run dashboard:install
+      - run:
+          name: Dashboard Build
+          command: npm run dashboard:build
+      - run:
+          name: Deploy Dashboard
+          command: npm run dashboard:deploy
+
+  build-and-deploy-website:
     docker:
       - image: cimg/node:18.18.2
     steps:
@@ -24,4 +40,5 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - build-and-deploy
+      - build-and-deploy-dashboard
+      - build-and-deploy-website
