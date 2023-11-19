@@ -1,7 +1,7 @@
 <header [ngClass]="{'transparent-bg': shouldApplyTransparentBg}">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid d-flex justify-content-between">
-            <a class="navbar-brand text-light" href="#">EtherMancer61</a>
+            <a class="navbar-brand text-light" href="#">EtherMancer</a>
             <button *ngIf="!isMainMenuOpen" (click)="toggleMainMenu()" class="navbar-toggler menu-open" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
                     <!-- About us -->
                     <li class="nav-item dropdown" (click)="toggleMenu('about'); trackClickEvent('Menu', 'About') ; $event.preventDefault()">
                         <a class="nav-link dropdown-toggle active text-light" href="#" id="aboutDropdown" role="button">
-                            About us
+                            About ussss
                         </a>
                         <ul *ngIf="isMenuOpen['about']" class="dropdown-menu">
                             <li><a class="dropdown-item" href="#"
