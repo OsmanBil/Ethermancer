@@ -7,8 +7,8 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-   private BASE_URL = 'http://localhost:3000';
-  // private BASE_URL = 'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com';
+ //  private BASE_URL = 'http://localhost:3000';
+   private BASE_URL = 'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com';
 
    backendURL = 'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com';
 
