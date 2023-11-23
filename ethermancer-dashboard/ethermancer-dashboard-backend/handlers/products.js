@@ -1,4 +1,3 @@
-const express = require('express');
 const { ProductStore } = require('../models/product');
 const { verifyAuthToken: authMiddleware } = require('./auth');
 

@@ -1,12 +1,10 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+
 var users_routes = require('./handlers/users');
 var products_routes = require('./handlers/products');
 var order_routes = require('./handlers/orders');
 // var dashboard_routes = require('./handlers/dashboard');
 var cors = require('cors');
-var pg = require('pg');
-var Client = pg.Client;
 
 var app = express(); // Create an Express application (App)
 

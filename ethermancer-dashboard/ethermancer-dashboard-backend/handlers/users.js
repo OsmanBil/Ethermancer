@@ -1,4 +1,3 @@
-var express = require('express');
 var jwt = require('jsonwebtoken');
 var UserStore = require('../models/user').UserStore;
 var authMiddleware = require('./auth').verifyAuthToken;

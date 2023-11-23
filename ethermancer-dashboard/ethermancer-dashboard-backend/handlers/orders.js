@@ -1,6 +1,4 @@
-const express = require('express');
 const { OrderStore } = require('../models/order');
-const jwt = require('jsonwebtoken');
 const { verifyAuthToken: authMiddleware } = require('./auth');
 
 const store = new OrderStore();
