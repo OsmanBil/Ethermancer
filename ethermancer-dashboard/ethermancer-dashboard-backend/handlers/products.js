@@ -4,6 +4,7 @@ const { verifyAuthToken: authMiddleware } = require('./auth');
 
 const store = new ProductStore();
 
+// Route handler to get all products from the database and send them as a JSON response
 const index = async (_req, res) => {
   try {
     const products = await store.index();
@@ -14,6 +15,7 @@ const index = async (_req, res) => {
   }
 };
 
+// Route handler to get a specific product by ID from the database and send it as a JSON response
 const show = async (req, res) => {
   const productId = req.params.id;
   try {
@@ -24,6 +26,7 @@ const show = async (req, res) => {
   }
 };
 
+// Route handler to create a new product in the database 
 const create = async (req, res) => {
   const product = {
     name: req.body.name,
@@ -41,6 +44,7 @@ const create = async (req, res) => {
   }
 };
 
+// Route handler to update a product in the database 
 const update = async (req, res) => {
   const productId = parseInt(req.params.id);
   const productUpdate = {
@@ -59,6 +63,7 @@ const update = async (req, res) => {
   }
 };
 
+// Route handler to delete a product in the database 
 const destroy = async (req, res) => {
   try {
     const deleted = await store.delete(req.params.id);
@@ -68,6 +73,7 @@ const destroy = async (req, res) => {
   }
 };
 
+// Define the product routes using the given application instance
 const products_routes = (app) => {
   app.get('/products', index);
   app.get('/products/:id', show);

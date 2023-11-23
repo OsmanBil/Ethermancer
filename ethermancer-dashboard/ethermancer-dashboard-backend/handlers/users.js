@@ -8,6 +8,7 @@ require('dotenv').config();
 
 var store = new UserStore(); 
 
+// Route handler to get all users from the database
 const index = async function(_req, res) {
   try {
     var users = await store.index();
@@ -17,6 +18,7 @@ const index = async function(_req, res) {
   }
 };
 
+// Route handler to get a specific user by ID from the database
 const show = async function(req, res) {
   var userId = req.params.id;
   try {
@@ -35,6 +37,7 @@ const show = async function(req, res) {
   }
 };
 
+// Route handler to create a new user in the database 
 const create = async function(req, res) {
   var user = {
     firstName: req.body.firstName,
@@ -53,6 +56,7 @@ const create = async function(req, res) {
   }
 };
 
+// Route handler to update a user in the database 
 const update = async function(req, res) {
   var userId = parseInt(req.params.id);
   var userUpdate = {
@@ -70,6 +74,7 @@ const update = async function(req, res) {
   }
 };
 
+// Route handler to delete a user in the database 
 const destroy = async function(req, res) {
   var userId = req.params.id;
   try {
