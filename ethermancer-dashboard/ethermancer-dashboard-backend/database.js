@@ -1,15 +1,16 @@
+require('dotenv').config(); 
 const { Pool } = require('pg');
 
-console.log(`Connected to my_database database.`);
+// console.log(`Connected to ${process.env.DB_DATABASE} database.`);
 
-const isProduction = false;  // Setzen Sie dies auf true für Produktionsumgebung
+const isProduction = false;
 
 const poolConfig = {
-  host: 'database-1.cxindoou3tc6.us-east-1.rds.amazonaws.com',          // Ersetzen Sie dies durch Ihre Datenbank-Host-Adresse
-  port: 5432,                // Ersetzen Sie dies durch Ihren Datenbank-Port, wenn er nicht 5432 ist
-  database: isProduction ? 'postgres' : 'postgres',  // Ersetzen Sie dies durch Ihre Datenbanknamen
-  user: 'postgres',           // Ersetzen Sie dies durch Ihren Datenbankbenutzernamen
-  password: 'postgresDB',   // Ersetzen Sie dies durch Ihr Datenbankpasswort
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,                
+  database: isProduction ? process.env.DB_DATABASE : process.env.DB_DATABASE,  
+  user: process.env.DB_USER,           
+  password: process.env.DB_PASSWORD,   
   ssl: {
     rejectUnauthorized: false
   }

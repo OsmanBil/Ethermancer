@@ -19,8 +19,8 @@ var corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions)); // Verwende CORS als Middleware
-// Diese Zeilen ersetzen body-parser
+app.use(cors(corsOptions)); // Use CORS as middleware
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -29,34 +29,6 @@ app.get('/', function (req, res) {
   res.json({ message: 'Main Route is working!!' });
 });
 
-app.get('/dbtest', async function (req, res) {
-  var client = new Client({
-    host: 'awseb-e-2qqhhymhns-stack-awsebrdsdatabase-9ztbwuywgpng.cxindoou3tc6.us-east-1.rds.amazonaws.com',
-    port: 5432,
-    user: 'postgres',
-    password: 'postgresPW',
-    database: 'postgres',
-    ssl: {
-       rejectUnauthorized: false
-    }
-  });
-
-  try {
-    await client.connect();
-    var dbResponse = await client.query('SELECT NOW()');
-    res.json({
-      status: 'success',
-      timestamp: dbResponse.rows[0].now,
-    });
-  } catch (error) {
-    res.status(500).json({
-      status: 'error',
-      message: error.message,
-    });  
-  } finally {
-    client.end();
-  }
-});
 
 users_routes(app);
 products_routes(app);
