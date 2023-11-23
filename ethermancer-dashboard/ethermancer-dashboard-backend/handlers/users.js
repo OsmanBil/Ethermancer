@@ -3,6 +3,8 @@ var jwt = require('jsonwebtoken');
 var UserStore = require('../models/user').UserStore;
 var authMiddleware = require('./auth').verifyAuthToken;
 var verifyDecodedUserMiddleware = require('./auth').verifyDecodedUser;
+require('dotenv').config();
+
 
 var store = new UserStore(); 
 
@@ -43,11 +45,11 @@ const create = async function(req, res) {
 
   try {
     var newUser = await store.create(user);
-    var token = jwt.sign({ user: newUser }, 'alohomora123!');
+    var token = jwt.sign({ user: newUser }, process.env.TOKEN_SECRET);
     res.json(token);
   } catch (err) {
-    console.log("Server Error:", err);  // Debugging-Zeile hinzugefügt
-    res.status(400).json({ error: err.message });  // Fehlermeldung hinzugefügt
+    // console.log("Server Error:", err);  // Debugging
+    res.status(400).json({ error: err.message });
   }
 };
 
@@ -87,13 +89,13 @@ const login = async function(req, res) {
   try {
     var u = await store.authenticate(user.username, user.password);
     if (u) {
-      var token = jwt.sign({ user: u }, 'alohomora123!');
+      var token = jwt.sign({ user: u }, process.env.TOKEN_SECRET);
       res.json(token);
     } else {
       res.status(401).send('Invalid login credentials');
     }
   } catch (err) {
-    console.log("Login Error:", err); // Hier wird der Fehler in der Konsole angezeigt
+    // console.log("Login Error:", err);  // Debugging
     res.status(500).send(`Error during login: ${err}`);
   }
 };

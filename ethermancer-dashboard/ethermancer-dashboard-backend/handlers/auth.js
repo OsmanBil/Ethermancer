@@ -1,4 +1,6 @@
 var jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 
 // Middleware function to verify the authenticity of the JWT token
 exports.verifyAuthToken = function(req, res, next) {
@@ -10,12 +12,9 @@ exports.verifyAuthToken = function(req, res, next) {
   }
 
   try {
-    // var token = authorizationHeader.split(' ')[1];
-    // jwt.verify(token, process.env.TOKEN_SECRET);
-    // next();
     var token = authorizationHeader.split(' ')[1];
-    var hardcodedTokenSecret = 'alohomora123!'; // Hardcoded Secret-Key
-    jwt.verify(token, hardcodedTokenSecret);
+    var tokenSecret = process.env.TOKEN_SECRET;
+    jwt.verify(token, tokenSecret);
     next();
   } catch (err) {
     res.status(401);
