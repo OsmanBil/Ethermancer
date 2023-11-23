@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 export class OrderService {
   // private baseUrl: string = 'http://localhost:3000/orders';
 
-  private baseUrl: string = 'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com/orders';
+  private baseUrl: string = 'http://ethermancer-dashboard-env.eba-7mhmes8r.us-east-1.elasticbeanstalk.com/orders';
 
 
   private orderData: Order | null = null;
