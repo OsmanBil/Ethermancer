@@ -100,5 +100,5 @@ class ProductStore {
 }
 
 module.exports = {
-  ProductStore: ProductStore
+  ProductStore: ProductStore,
 };

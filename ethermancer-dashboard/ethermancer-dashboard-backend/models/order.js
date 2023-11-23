@@ -94,5 +94,5 @@ class OrderStore {
 
 // CommonJS export style
 module.exports = {
-  OrderStore: OrderStore
+  OrderStore: OrderStore,
 };

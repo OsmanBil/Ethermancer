@@ -29,13 +29,12 @@ app.get('/', function (req, res) {
   res.json({ message: 'Main Route is working!!' });
 });
 
-
 users_routes(app);
 products_routes(app);
 order_routes(app);
 // dashboard_routes(app);
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`Server is running on port ${PORT}`);
 });
 

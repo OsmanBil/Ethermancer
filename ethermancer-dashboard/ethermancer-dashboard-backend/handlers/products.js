@@ -26,7 +26,7 @@ const show = async (req, res) => {
   }
 };
 
-// Route handler to create a new product in the database 
+// Route handler to create a new product in the database
 const create = async (req, res) => {
   const product = {
     name: req.body.name,
@@ -44,7 +44,7 @@ const create = async (req, res) => {
   }
 };
 
-// Route handler to update a product in the database 
+// Route handler to update a product in the database
 const update = async (req, res) => {
   const productId = parseInt(req.params.id);
   const productUpdate = {
@@ -63,7 +63,7 @@ const update = async (req, res) => {
   }
 };
 
-// Route handler to delete a product in the database 
+// Route handler to delete a product in the database
 const destroy = async (req, res) => {
   try {
     const deleted = await store.delete(req.params.id);

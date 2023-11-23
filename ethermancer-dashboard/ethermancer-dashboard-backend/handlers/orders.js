@@ -32,7 +32,6 @@ const create = async (req, res) => {
     user_id: req.body.user_id,
   };
   try {
-
     const newOrder = await store.create(order);
     res.json(newOrder);
   } catch (err) {

@@ -40,9 +40,15 @@ class UserStore {
         throw new Error('Username and password are required.');
       }
       const conn = await Client.connect();
-      const sql = 'INSERT INTO users (firstName, lastName, username, password) VALUES($1, $2, $3, $4) RETURNING *';
+      const sql =
+        'INSERT INTO users (firstName, lastName, username, password) VALUES($1, $2, $3, $4) RETURNING *';
       const hash = bcrypt.hashSync(u.password + pepper, saltRounds);
-      const result = await conn.query(sql, [u.firstName, u.lastName, u.username, hash]);
+      const result = await conn.query(sql, [
+        u.firstName,
+        u.lastName,
+        u.username,
+        hash,
+      ]);
       const user = result.rows[0];
       conn.release();
       return user;
@@ -60,9 +66,16 @@ class UserStore {
         throw new Error(`User with ID ${id} not found.`);
       }
       const mergedUser = { ...existingUser, ...updatedUser };
-      const sql = 'UPDATE users SET firstName = $1, lastName = $2, username = $3, password = $4 WHERE id = $5 RETURNING *';
+      const sql =
+        'UPDATE users SET firstName = $1, lastName = $2, username = $3, password = $4 WHERE id = $5 RETURNING *';
       const hash = bcrypt.hashSync(mergedUser.password + pepper, saltRounds);
-      const result = await conn.query(sql, [mergedUser.firstName, mergedUser.lastName, mergedUser.username, hash, id]);
+      const result = await conn.query(sql, [
+        mergedUser.firstName,
+        mergedUser.lastName,
+        mergedUser.username,
+        hash,
+        id,
+      ]);
       const user = result.rows[0];
       conn.release();
       return user;
@@ -88,10 +101,10 @@ class UserStore {
     const conn = await Client.connect();
     const sql = 'SELECT * FROM users WHERE username=($1)';
     const result = await conn.query(sql, [username]);
-  
+
     if (result.rows.length) {
       const user = result.rows[0];
-  
+
       if (bcrypt.compareSync(password + pepper, user.password)) {
         delete user.password;
         return user;

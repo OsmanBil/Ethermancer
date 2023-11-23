@@ -1,9 +1,8 @@
 var jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-
 // Middleware function to verify the authenticity of the JWT token
-exports.verifyAuthToken = function(req, res, next) {
+exports.verifyAuthToken = function (req, res, next) {
   var authorizationHeader = req.headers.authorization;
   if (!authorizationHeader) {
     res.status(401);
@@ -24,7 +23,7 @@ exports.verifyAuthToken = function(req, res, next) {
 };
 
 // Middleware function to verify if the decoded user from the JWT token matches the requested user ID
-exports.verifyDecodedUser = function(req, res, next) {
+exports.verifyDecodedUser = function (req, res, next) {
   var authorizationHeader = req.headers.authorization;
   if (!authorizationHeader) {
     res.status(401).json({ message: 'Access denied, no token provided.' });

@@ -5,11 +5,10 @@ var authMiddleware = require('./auth').verifyAuthToken;
 var verifyDecodedUserMiddleware = require('./auth').verifyDecodedUser;
 require('dotenv').config();
 
-
-var store = new UserStore(); 
+var store = new UserStore();
 
 // Route handler to get all users from the database
-const index = async function(_req, res) {
+const index = async function (_req, res) {
   try {
     var users = await store.index();
     res.json(users);
@@ -19,7 +18,7 @@ const index = async function(_req, res) {
 };
 
 // Route handler to get a specific user by ID from the database
-const show = async function(req, res) {
+const show = async function (req, res) {
   var userId = req.params.id;
   try {
     var user = await store.show(userId);
@@ -37,8 +36,8 @@ const show = async function(req, res) {
   }
 };
 
-// Route handler to create a new user in the database 
-const create = async function(req, res) {
+// Route handler to create a new user in the database
+const create = async function (req, res) {
   var user = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -56,8 +55,8 @@ const create = async function(req, res) {
   }
 };
 
-// Route handler to update a user in the database 
-const update = async function(req, res) {
+// Route handler to update a user in the database
+const update = async function (req, res) {
   var userId = parseInt(req.params.id);
   var userUpdate = {
     username: req.body.username,
@@ -74,8 +73,8 @@ const update = async function(req, res) {
   }
 };
 
-// Route handler to delete a user in the database 
-const destroy = async function(req, res) {
+// Route handler to delete a user in the database
+const destroy = async function (req, res) {
   var userId = req.params.id;
   try {
     var deleted = await store.delete(userId);
@@ -85,12 +84,12 @@ const destroy = async function(req, res) {
   }
 };
 
-const login = async function(req, res) {
+const login = async function (req, res) {
   var user = {
     username: req.body.username,
     password: req.body.password,
   };
-  
+
   try {
     var u = await store.authenticate(user.username, user.password);
     if (u) {
@@ -105,7 +104,7 @@ const login = async function(req, res) {
   }
 };
 
-const users_routes = function(app) {
+const users_routes = function (app) {
   app.post('/login', login);
   app.get('/users', authMiddleware, index);
   app.get('/users/:id', authMiddleware, show);
