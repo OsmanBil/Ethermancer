@@ -9,15 +9,17 @@ import { AuthService } from './auth.service';
 export class OrderService {
   // private baseUrl: string = 'http://localhost:3000/orders';
 
-  private baseUrl: string = 'http://ethermancer-dashboard-env.eba-7mhmes8r.us-east-1.elasticbeanstalk.com/orders';
-
+  private baseUrl: string =
+    'http://ethermancer-dashboard-env.eba-7mhmes8r.us-east-1.elasticbeanstalk.com/orders';
 
   private orderData: Order | null = null;
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   placeOrder() {
-
     const userId = this.authService.getLoggedInUserId();
     console.log('User ID is:', userId);
 
@@ -29,12 +31,11 @@ export class OrderService {
     // Hier senden wir nur den Status, da das Backend so eingerichtet ist.
     const orderData = {
       user_id: userId,
-      status: 'active'
+      status: 'active',
     };
 
     return this.http.post<Order>(this.baseUrl, orderData, { headers });
   }
-
 
   // Methode, um ein Produkt zu einer Bestellung hinzuzufügen.
   addProductToOrder(orderId: number, productId: number, quantity: number) {
@@ -46,7 +47,7 @@ export class OrderService {
     // Die Produktdaten, die an das Backend gesendet werden.
     const productData = {
       productId: productId,
-      quantity: quantity
+      quantity: quantity,
     };
 
     // Die URL muss die Bestell-ID enthalten, zu der das Produkt hinzugefügt wird.
@@ -54,7 +55,6 @@ export class OrderService {
 
     return this.http.post(url, productData, { headers });
   }
-
 
   setOrderData(data: Order): void {
     this.orderData = data;

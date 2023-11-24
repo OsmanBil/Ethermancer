@@ -8,7 +8,7 @@ describe('TopWidgetsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TopWidgetsComponent]
+      declarations: [TopWidgetsComponent],
     });
     fixture = TestBed.createComponent(TopWidgetsComponent);
     component = fixture.componentInstance;

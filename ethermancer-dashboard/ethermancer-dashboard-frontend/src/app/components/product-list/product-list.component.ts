@@ -13,9 +13,10 @@ export class ProductListComponent implements OnInit {
 
   // Backend-Server URL
   // private BASE_URL: string = 'http://testumgebung-env.eba-6jy5svvu.us-east-1.elasticbeanstalk.com';
-  private BASE_URL: string = 'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com'; // Backend-Server URL (local)
+  private BASE_URL: string =
+    'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com'; // Backend-Server URL (local)
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     // console.log('ngOnInit called');
@@ -25,11 +26,10 @@ export class ProductListComponent implements OnInit {
         // console.log('Fetched products:', this.products); // Log the fetched products
       },
       (error: unknown) => {
-        // console.error('Failed to fetch the product data:', error);
+        console.error('Failed to fetch the product data:', error);
       },
     );
   }
-
 
   onProductAdded(product: Product): void {
     alert(`The product "${product.name}" has been added to the shopping cart.`);

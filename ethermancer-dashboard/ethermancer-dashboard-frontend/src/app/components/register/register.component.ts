@@ -6,16 +6,15 @@ import { User } from '../../models/user';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  user: User = {firstName: '', lastName: '', username: '', password: ''};
+  user: User = { firstName: '', lastName: '', username: '', password: '' };
 
   loginData = {
     username: '',
-    password: ''
+    password: '',
   };
-
 
   // Form variables
   userName: string = '';
@@ -24,31 +23,32 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
 
-   // Form validation variables
-   userNameLength: number = 0;
-   firstNameLength: number = 0;
-   lastNameLength: number = 0;
-   emailLength: number = 0;
-   emailValid: boolean = false;
-   datenschutzAccepted: boolean = false;
-   passwordLength: number = 0;
+  // Form validation variables
+  userNameLength: number = 0;
+  firstNameLength: number = 0;
+  lastNameLength: number = 0;
+  emailLength: number = 0;
+  emailValid: boolean = false;
+  datenschutzAccepted: boolean = false;
+  passwordLength: number = 0;
 
-  constructor(private userService: UserService, private router: Router) { } // Injizieren Sie den Router
+  constructor(
+    private userService: UserService,
+    private router: Router,
+  ) {} // Injizieren Sie den Router
 
   onRegister() {
     console.log('User being sent:', this.user); // Hier wird das `user`-Objekt ausgegeben.
-    this.userService.registerUser(this.user).subscribe(response => {
+    this.userService.registerUser(this.user).subscribe((response) => {
       localStorage.setItem('jwtToken', response);
       // console.log('Token saved:', response);
       this.router.navigate(['/dashboard']); // Weiterleitung zum Home-Bereich oder einer anderen Seite
     });
   }
 
-  onLogin(){
+  onLogin() {}
 
-  }
-
- // Handle Form Changes
+  // Handle Form Changes
   handleuserNameChange(newValue: string): void {
     this.userNameLength = newValue.length;
   }
@@ -64,10 +64,11 @@ export class RegisterComponent {
   handleEmailChange(newValue: string): void {
     this.emailLength = newValue.length;
     // Einfache Überprüfung auf ein gültiges E-Mail-Format
-    this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(newValue);
+    this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+      newValue,
+    );
   }
   handleDatenschutzChange(newValue: boolean): void {
     this.datenschutzAccepted = newValue;
   }
-
 }

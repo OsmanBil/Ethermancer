@@ -59,7 +59,6 @@ import { AuthService } from './services/auth.service';
     MainDashboardComponent,
     ShopComponent,
     TermsComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -68,7 +67,7 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    ChartModule
+    ChartModule,
   ],
   providers: [CartService, DecimalPipe, OrderService, AuthService],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, CartItem } from '../../services/cart.service';
 import { OrderService } from '../../services/order.service';
-import { Order } from '../../models/order';
+// import { Order } from '../../models/order';
 import { Router } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Product } from 'src/app/models/product';
@@ -28,8 +28,8 @@ export class ShoppingCartComponent implements OnInit {
     private decimalPipe: DecimalPipe,
     private orderService: OrderService,
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
     this.cartItems = this.cartService.getCart();
@@ -61,25 +61,24 @@ export class ShoppingCartComponent implements OnInit {
       (response) => {
         console.log('Order created:', response);
         const orderId = response.id; // Die ID der erstellten Bestellung.
-        console.log("Erzeugte Order ID:", orderId);
+        console.log('Erzeugte Order ID:', orderId);
         if (orderId) {
           // Nun fügen Sie jedes Produkt aus dem Warenkorb zur Bestellung hinzu.
-          for (let item of this.cartItems) {
-            this.orderService.addProductToOrder(orderId, item.product.id, item.quantity).subscribe(
-              (response) => {
-                console.log('Product added to order:', response);
-              },
-              (error) => {
-                console.error('Error adding product to order:', error);
-              }
-            );
+          for (const item of this.cartItems) {
+            this.orderService
+              .addProductToOrder(orderId, item.product.id, item.quantity)
+              .subscribe(
+                (response) => {
+                  console.log('Product added to order:', response);
+                },
+                (error) => {
+                  console.error('Error adding product to order:', error);
+                },
+              );
           }
         } else {
           console.error('Order ID fehlt in der Backend-Antwort.');
         }
-
-
-
 
         // Nachdem alle Produkte hinzugefügt wurden, navigieren Sie zur Bestätigungsseite.
         this.router.navigate(['/dashboard/shop/order-confirmation']);
@@ -87,10 +86,9 @@ export class ShoppingCartComponent implements OnInit {
       },
       (error) => {
         console.error('Error creating order:', error);
-      }
+      },
     );
   }
-
 
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
