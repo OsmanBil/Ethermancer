@@ -18,7 +18,7 @@ export class FaqComponent implements OnInit {
   async loadData(): Promise<void> {
     try {
       const response = await fetch('../../../assets/datas/faq.json');
-     // console.log('Status:', response.status, response.statusText); 
+      // console.log('Status:', response.status, response.statusText);
       if (!response.ok) {
         throw new Error(
           `Network response was not ok, status: ${response.status}, statusText: ${response.statusText}`,

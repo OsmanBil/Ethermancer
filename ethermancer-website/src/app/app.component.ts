@@ -9,9 +9,7 @@ import { AgreementService } from './services/agreement.service';
 export class AppComponent {
   title = 'ethermancer-website';
 
-  constructor(private agreementService: AgreementService) {
-  
-  }
+  constructor(private agreementService: AgreementService) {}
 
   shouldDisplayTermsConfirmation() {
     return !this.agreementService.isTermsConfirmed();

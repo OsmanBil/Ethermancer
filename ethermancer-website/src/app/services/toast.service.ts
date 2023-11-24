@@ -7,7 +7,7 @@ export interface Toast {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ToastService {
   private toastsSubject = new BehaviorSubject<Toast[]>([]);
@@ -21,8 +21,6 @@ export class ToastService {
       this.removeToast(newToast);
     }, 3000);
   }
-
-
 
   private removeToast(toast: Toast) {
     const currentToasts = this.toastsSubject.value;

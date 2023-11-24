@@ -6,11 +6,13 @@ import { SubscribeService } from '../../services/subscribe.service';
 @Component({
   selector: 'app-subscribe',
   templateUrl: './subscribe.component.html',
-  styleUrls: ['./subscribe.component.scss']
+  styleUrls: ['./subscribe.component.scss'],
 })
 export class SubscribeComponent {
-
-  constructor(private subscribeService: SubscribeService, private toastService: ToastService) { }
+  constructor(
+    private subscribeService: SubscribeService,
+    private toastService: ToastService,
+  ) {}
 
   email: string = '';
   emailLength: number = 0;
@@ -29,7 +31,9 @@ export class SubscribeComponent {
     if (newValue !== null && newValue !== undefined) {
       this.emailLength = newValue.length;
       // Check for a valid email format
-      this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(newValue);
+      this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+        newValue,
+      );
     }
   }
 
@@ -39,34 +43,21 @@ export class SubscribeComponent {
     };
 
     this.subscribeService.sendSubscribeForm(data).subscribe(
-      response => {
-        console.log("Formulardaten erfolgreich gesendet:", response);
+      (response) => {
+        console.log('Formulardaten erfolgreich gesendet:', response);
 
         // Reset the form data
 
         this.email = '';
 
-
-
         this.emailLength = 0;
-
-
 
         // Reset the form and its validation
         form.resetForm();
-
-
-
       },
-      error => {
+      () => {
         form.resetForm();
-
-
-      }
+      },
     );
   }
-
-
-
-
 }

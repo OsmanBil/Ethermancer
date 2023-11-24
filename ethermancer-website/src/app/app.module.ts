@@ -90,7 +90,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     Angulartics2Module.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

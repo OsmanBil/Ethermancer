@@ -13,7 +13,7 @@ export class AgreementService {
     localStorage.setItem('termsConfirmed', 'true');
     localStorage.setItem('termsExpiration', expirationDate.toISOString());
   }
-  
+
   isTermsConfirmed() {
     const expirationDate = localStorage.getItem('termsExpiration');
     if (!expirationDate) {
@@ -21,5 +21,4 @@ export class AgreementService {
     }
     return new Date() < new Date(expirationDate);
   }
-  
 }

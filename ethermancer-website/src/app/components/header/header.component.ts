@@ -21,8 +21,8 @@ export class HeaderComponent {
   constructor(
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-    private angulartics2: Angulartics2
-  ) { }
+    private angulartics2: Angulartics2,
+  ) {}
 
   ngOnInit(): void {
     // Add listeners for clicks on the entire document
@@ -40,8 +40,8 @@ export class HeaderComponent {
       action: 'MenuLinkClicked',
       properties: {
         category: category,
-        label: label
-      }
+        label: label,
+      },
     });
   }
 
