@@ -1,50 +1,46 @@
 <div class="header">
-    <div class="logo" routerLink="/dashboard/mainDashboard">EtherMancer</div>
+  <div class="logo" routerLink="/dashboard/mainDashboard">EtherMancer</div>
 </div>
 <div class="login-main-container">
 
-    <div class="custom-card-width card top-margin">
-        <div class="title">
-            <h1>Login</h1>
-            <p>Please log in to use the Ethermancer trading bot</p>
-            <p>Demo Account: Username: bilgin, Password: test123</p>
-        </div>
-
-
-        <form #form="ngForm" class="row g-3" (ngSubmit)="onLogin()">
-            <!-- user-Name -->
-            <div class="col-md-9">
-                <input type="text" class="form-control" id="userName" name="userName" required minlength="3"
-                    maxlength="16" placeholder="Enter Username" [(ngModel)]="loginData.username"
-                    (ngModelChange)="handleuserNameChange($event)" #userNameInput="ngModel">
-
-                <div class="validation-field" *ngIf="userNameInput.invalid && userNameInput.dirty">
-                    <!-- <p *ngIf="userNameLength > 0">{{userNameLength}} / 16</p> -->
-                    <div *ngIf="userNameInput.errors?.['required']" class="text-danger">
-                        Username is required.
-                    </div>
-                    <div *ngIf="userNameInput.errors?.['minlength']" class="text-danger">
-                        Username must contain at least 3 characters.
-                    </div>
-                    <div *ngIf="userNameInput.errors?.['maxlength']" class="text-danger">
-                        Username must not exceed 16 characters.
-                    </div>
-                </div>
-            </div>
-            <!-- Password -->
-            <div class="col-md-9">
-                <input type="password" [(ngModel)]="loginData.password" placeholder="Password" name="password" required
-                    class="form-control" id="exampleInputPassword1">
-            </div>
-            <div>
-                <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Login</button>
-            </div>
-
-        </form>
-        <p>Don't have an account? <a routerLink="/register">Sign up now</a></p>
+  <div class="custom-card-width card top-margin">
+    <div class="title">
+      <h1>Login</h1>
+      <p>Please log in to use the Ethermancer trading bot</p>
+      <p>Demo Account: Username: bilgin, Password: test123</p>
     </div>
-    <div *ngIf="dbTestStatus === 'error'" class="alert alert-danger">
-        Fehler bei der Verbindung zur Datenbank. Bitte versuchen Sie es später erneut.
+
+
+    <form #form="ngForm" class="row g-3" (ngSubmit)="onLogin()">
+      <!-- user-Name -->
+      <div class="col-md-9">
+        <input type="text" class="form-control" id="userName" name="userName" required minlength="3" maxlength="16"
+          placeholder="Enter Username" [(ngModel)]="loginData.username" (ngModelChange)="handleuserNameChange($event)"
+          #userNameInput="ngModel">
+
+        <div class="validation-field" *ngIf="userNameInput.invalid && userNameInput.dirty">
+          <!-- <p *ngIf="userNameLength > 0">{{userNameLength}} / 16</p> -->
+          <div *ngIf="userNameInput.errors?.['required']" class="text-danger">
+            Username is required.
+          </div>
+          <div *ngIf="userNameInput.errors?.['minlength']" class="text-danger">
+            Username must contain at least 3 characters.
+          </div>
+          <div *ngIf="userNameInput.errors?.['maxlength']" class="text-danger">
+            Username must not exceed 16 characters.
+          </div>
+        </div>
       </div>
-      <p>{{ backendMessage }}</p>
-</div>
+      <!-- Password -->
+      <div class="col-md-9">
+        <input type="password" [(ngModel)]="loginData.password" placeholder="Password" name="password" required
+          class="form-control" id="exampleInputPassword1">
+      </div>
+      <div>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Login</button>
+      </div>
+
+    </form>
+    <p>Don't have an account? <a routerLink="/register">Sign up now</a></p>
+  </div>
+ </div>

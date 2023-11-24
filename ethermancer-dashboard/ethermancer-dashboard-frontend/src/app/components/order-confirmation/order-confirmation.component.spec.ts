@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { OrderConfirmationComponent } from './order-confirmation.component';
 
 describe('OrderConfirmationComponent', () => {
@@ -8,6 +8,7 @@ describe('OrderConfirmationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [OrderConfirmationComponent],
     });
     fixture = TestBed.createComponent(OrderConfirmationComponent);
