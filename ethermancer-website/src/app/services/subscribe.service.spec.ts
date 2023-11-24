@@ -8,7 +8,7 @@ describe('SubscribeService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule], // Import HttpClientTestingModule
-      providers: [SubscribeService]
+      providers: [SubscribeService],
     });
     service = TestBed.inject(SubscribeService);
   });
@@ -16,5 +16,4 @@ describe('SubscribeService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
 });

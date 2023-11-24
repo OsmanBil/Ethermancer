@@ -10,28 +10,28 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TermsConfirmationComponent } from './components/terms-confirmation/terms-confirmation.component';
 
-class MockRouterlessTracking {
-
-}
+class MockRouterlessTracking {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule,
+      imports: [
+        RouterTestingModule,
         HttpClientTestingModule,
         ReactiveFormsModule,
-        FormsModule],
+        FormsModule,
+      ],
       declarations: [
         AppComponent,
         HeaderComponent,
         FooterComponent,
         SubscribeComponent,
-        TermsConfirmationComponent
+        TermsConfirmationComponent,
       ],
       providers: [
-        { provide: Angulartics2, useValue: { startTracking: () => { } } }, // Mock Angulartics2
-        { provide: RouterlessTracking, useClass: MockRouterlessTracking } // Verwenden Sie MockRouterlessTracking hier
-      ]
+        { provide: Angulartics2, useValue: { startTracking: () => {} } }, // Mock Angulartics2
+        { provide: RouterlessTracking, useClass: MockRouterlessTracking }, // Verwenden Sie MockRouterlessTracking hier
+      ],
     }).compileComponents();
   });
 

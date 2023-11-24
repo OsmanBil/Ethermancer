@@ -11,7 +11,7 @@ describe('TestimonialsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [TestimonialsComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [MDBBootstrapModule] 
+      imports: [MDBBootstrapModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestimonialsComponent);
@@ -22,5 +22,4 @@ describe('TestimonialsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

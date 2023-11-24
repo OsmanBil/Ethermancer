@@ -10,11 +10,7 @@ describe('SubscribeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        ReactiveFormsModule,
-        FormsModule
-      ],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, FormsModule],
       declarations: [SubscribeComponent],
     });
     fixture = TestBed.createComponent(SubscribeComponent);

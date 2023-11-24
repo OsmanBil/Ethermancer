@@ -11,11 +11,13 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule,
+      imports: [
+        RouterTestingModule,
         HttpClientTestingModule,
         ReactiveFormsModule,
-        FormsModule],
-      declarations: [FooterComponent,SubscribeComponent],
+        FormsModule,
+      ],
+      declarations: [FooterComponent, SubscribeComponent],
     });
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;

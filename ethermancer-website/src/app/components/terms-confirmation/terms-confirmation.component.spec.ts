@@ -9,7 +9,7 @@ describe('TermsConfirmationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TermsConfirmationComponent],
-      imports: [RouterTestingModule] // Import RouterTestingModule
+      imports: [RouterTestingModule], // Import RouterTestingModule
     }).compileComponents();
 
     fixture = TestBed.createComponent(TermsConfirmationComponent);

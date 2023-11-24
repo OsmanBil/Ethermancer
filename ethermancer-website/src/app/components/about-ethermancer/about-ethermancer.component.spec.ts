@@ -9,7 +9,7 @@ describe('AboutEthermancerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AboutEthermancerComponent],
-      providers: [{ provide: DOCUMENT, useValue: document }]
+      providers: [{ provide: DOCUMENT, useValue: document }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AboutEthermancerComponent);
@@ -20,15 +20,14 @@ describe('AboutEthermancerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('should initially have isLoading as true', () => {
     expect(component.isLoading).toBeTrue();
   });
-  
+
   it('should call scrollToElement without errors', () => {
     spyOn(component, 'scrollToElement').and.callThrough();
     component.scrollToElement('systems');
     expect(component.scrollToElement).toHaveBeenCalled();
   });
-  
 });

@@ -20,9 +20,7 @@ describe('MainContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        MDBBootstrapModule.forRoot()
-      ],
+      imports: [MDBBootstrapModule.forRoot()],
       declarations: [
         MainContentComponent,
         AboutEthermancerComponent,
@@ -35,9 +33,9 @@ describe('MainContentComponent', () => {
         RoadmapComponent,
         TeamComponent,
         WhitepaperComponent,
-        FaqComponent
+        FaqComponent,
       ],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     });
     fixture = TestBed.createComponent(MainContentComponent);
     component = fixture.componentInstance;
