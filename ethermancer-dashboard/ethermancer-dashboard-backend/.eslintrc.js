@@ -4,6 +4,7 @@ module.exports = {
     commonjs: true,
     es2021: true,
     node: true,
+    jasmine: true,
   },
   extends: 'eslint:recommended',
   overrides: [
@@ -16,6 +17,7 @@ module.exports = {
     {
       env: {
         node: true,
+        "jasmine": true
       },
       files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
