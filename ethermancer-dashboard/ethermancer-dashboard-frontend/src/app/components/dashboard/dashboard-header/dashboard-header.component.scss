@@ -9,6 +9,7 @@
     .logo {
       font-weight: bold;
       font-size: 20px;
+      cursor: pointer;
     }
     .user {
       display: flex;
@@ -16,6 +17,7 @@
       justify-content: center;
       font-weight: bold;
       color: white;
+      cursor: pointer;
       .user-name{
         padding-right: 16px;
       }
