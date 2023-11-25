@@ -24,14 +24,21 @@ jobs:
           name: Install Backend.Dependencies
           command: npm run dashboard-backend:install
       - run:
+          name: Run Backend Prettier
+          command: npm run dashboard-backend:prettier
+      - run:
+          name: Run Backend Lint
+          command: npm run dashboard-backend:lint
+      - run:
           name: Zip the Application
-          command: zip -r application.zip server.js package.json database.js handlers/ models/ 
+          command: zip -r application.zip server.js package.json database.js handlers/ models/
       - run:
           name: Upload to S3
           command: aws s3 cp application.zip s3://awstestbucketfordb/application.zip
       - run:
            name: Deploy Back-End
            command: npm run dashboard-backend:deploy
+
   build-and-deploy-dashboard:
     docker:
       - image: cimg/node:18.18.2
@@ -41,6 +48,12 @@ jobs:
       - run:
           name: Dashboard Install
           command: npm run dashboard:install
+      - run:
+          name: Run Dashboard Prettier
+          command: npm run dashboard:prettier
+      - run:
+          name: Run Dashboard Lint
+          command: npm run dashboard:lint
       - run:
           name: Dashboard Build
           command: npm run dashboard:build
@@ -57,6 +70,12 @@ jobs:
       - run:
           name: Website Install
           command: npm run website:install
+      - run:
+          name: Run Website Prettier
+          command: npm run website:prettier
+      - run:
+          name: Run Website Lint
+          command: npm run website:lint
       - run:
           name: Website Build
           command: npm run website:build
