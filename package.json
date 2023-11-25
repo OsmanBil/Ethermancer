@@ -1,18 +1,21 @@
 {
     "scripts": {
         "dashboard-backend:install": "cd ethermancer-dashboard/ethermancer-dashboard-backend && npm install",
+        "dashboard-backend:test": "cd ethermancer-dashboard/ethermancer-dashboard-backend && npm run test",
         "dashboard-backend:prettier": "cd ethermancer-dashboard/ethermancer-dashboard-backend && npm run prettier",
         "dashboard-backend:lint": "cd ethermancer-dashboard/ethermancer-dashboard-backend && npm run lint",
         "dashboard-backend:deploy": "cd ethermancer-dashboard/ethermancer-dashboard-backend && chmod +x bin/deploy.sh && bin/deploy.sh",
 
         "dashboard:install": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm install",
         "dashboard:build": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm run build",
+        "dashboard:test": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm run test",
         "dashboard:prettier": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm run prettier",
         "dashboard:lint": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && npm run lint",
         "dashboard:deploy": "cd ethermancer-dashboard/ethermancer-dashboard-frontend && chmod +x bin/deploy.sh && bin/deploy.sh",
        
         "website:install": "cd ethermancer-website && npm install",
         "website:build": "cd ethermancer-website && npm run build",
+        "website:test": "cd ethermancer-website && npm run test",
         "website:prettier": "cd ethermancer-website && npm run prettier",
         "website:lint": "cd ethermancer-website && npm run lint",
         "website:deploy": "cd ethermancer-website && chmod +x bin/deploy.sh && bin/deploy.sh"
