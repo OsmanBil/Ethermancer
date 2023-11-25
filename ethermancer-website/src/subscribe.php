@@ -1,15 +1,15 @@
 <?php
 // subscribe.php
 
-// CORS-Header setzen
+// Set CORS-Header
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 
-// POST-Anfrage abfangen
+// Intercept POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // JSON-Daten aus der POST-Anfrage lesen
+    // Read JSON data from POST request
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message .= "E-Mail: " . $data['email'] . "\n";
 
 
-    $headers = "From: subscribe@skyDrohnen";
+    $headers = "From: subscribe@ethermancer.de";
 
-    // E-Mail senden
+    // send E-Mail
     if (mail($to, $subject, $message, $headers)) {
         echo json_encode(["message" => "Formular erfolgreich verarbeitet und E-Mail gesendet."]);
     } else {
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 } else {
-    // Fehlermeldung, falls keine POST-Anfrage vorliegt
+    // Error message if there is no POST request
     echo json_encode(["message" => "Nur POST-Anfragen werden akzeptiert"]);
 }
 ?>
