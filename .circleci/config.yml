@@ -8,6 +8,8 @@ jobs:
   build-and-deploy-backend:
     docker:
       - image: cimg/node:18.18.2
+        environment:
+          CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - aws-cli/setup
