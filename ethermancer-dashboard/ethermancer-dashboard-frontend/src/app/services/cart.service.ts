@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { Subject } from 'rxjs';
 
 export interface CartItem {
   product: Product;
@@ -10,6 +11,7 @@ export interface CartItem {
   providedIn: 'root',
 })
 export class CartService {
+  private cartUpdated = new Subject<void>();
   private cart: CartItem[] = [];
 
   constructor() {}
@@ -22,6 +24,7 @@ export class CartService {
     } else {
       this.cart.push({ product: product, quantity: quantity });
     }
+    this.cartUpdated.next();
   }
 
   getCart(): CartItem[] {
@@ -30,6 +33,7 @@ export class CartService {
 
   clearCart(): void {
     this.cart = [];
+    this.cartUpdated.next();
   }
 
   removeFromCart(product: Product): void {
@@ -38,5 +42,14 @@ export class CartService {
     if (index > -1) {
       this.cart.splice(index, 1);
     }
+    this.cartUpdated.next();
+  }
+
+  getTotalQuantity(): number {
+    return this.cart.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  getCartUpdatedListener() {
+    return this.cartUpdated.asObservable();
   }
 }

@@ -9,7 +9,13 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" routerLink="/dashboard/shop/product-list">Product-list</a>
         <a class="nav-link active" routerLink="/dashboard/shop/shopping-cart">
-          <fa-icon [icon]="faShoppingCart"></fa-icon> Cart
+          <button type="button" class="btn btn-primary position-relative">
+            <fa-icon [icon]="faShoppingCart"></fa-icon> 
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <span *ngIf="totalQuantity !== null && totalQuantity !== undefined">{{ totalQuantity }}</span>
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button>
         </a>
       </div>
     </div>
