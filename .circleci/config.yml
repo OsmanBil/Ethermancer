@@ -9,7 +9,7 @@ jobs:
     docker:
       - image: cimg/node:18.18.2
         environment:
-          CHROME_BIN: /usr/bin/google-chrome
+          CHROME_BIN: /usr/bin/google-chrome karma start --single-run
     steps:
       - checkout
       - aws-cli/setup
