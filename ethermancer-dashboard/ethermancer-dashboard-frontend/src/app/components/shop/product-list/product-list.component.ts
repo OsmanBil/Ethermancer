@@ -10,6 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class ProductListComponent implements OnInit {
   title: string = 'Products';
   products: Product[] = [];
+  public showToast: boolean = false;
+  addedProductName: string = '';
+  toastClass: string = 'hidden';
 
   // Backend-Server URL
   // private BASE_URL: string = 'http://testumgebung-env.eba-6jy5svvu.us-east-1.elasticbeanstalk.com';
@@ -32,6 +35,12 @@ export class ProductListComponent implements OnInit {
   }
 
   onProductAdded(product: Product): void {
-    alert(`The product "${product.name}" has been added to the shopping cart.`);
+    this.addedProductName = product.name;
+    this.toastClass = 'fadeIn'; // Start Fade-In-Animation
+  
+    setTimeout(() => {
+      this.toastClass = 'fadeOut'; // Start Fade-Out-Animation
+    }, 3000);
   }
+  
 }

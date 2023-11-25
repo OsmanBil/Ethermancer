@@ -23,6 +23,10 @@ export class ShoppingCartComponent implements OnInit {
   addressLength: number = 0;
   lastFourDigits: string = '';
 
+  public showToast: boolean = false;
+  removedProductName: string = '';
+  toastClass: string = 'hidden';
+
   constructor(
     private cartService: CartService,
     private decimalPipe: DecimalPipe,
@@ -93,9 +97,12 @@ export class ShoppingCartComponent implements OnInit {
   removeFromCart(product: Product): void {
     this.cartService.removeFromCart(product);
     this.cartItems = this.cartService.getCart();
-    alert(
-      `The product "${product.name}" has been removed from the shopping cart.`,
-    );
+    this.removedProductName = product.name;
+    this.toastClass = 'fadeIn'; // Start Fade-In-Animation
+  
+    setTimeout(() => {
+      this.toastClass = 'fadeOut'; // Start Fade-Out-Animation
+    }, 3000);
   }
 
   handleNameChange(newValue: string) {

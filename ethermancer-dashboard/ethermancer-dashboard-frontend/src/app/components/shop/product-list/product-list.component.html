@@ -3,5 +3,8 @@
   <app-product *ngFor="let product of products" [product]="product" (productAdded)="onProductAdded($event)">
   </app-product>
 </div>
-
+<div [class]="toastClass"
+style="position: fixed; bottom: 20px; right: 20px; background-color: blue; color: white; padding: 10px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); z-index: 999; animation-duration: 0.5s;">
+  {{ addedProductName }} added!
+</div>
 

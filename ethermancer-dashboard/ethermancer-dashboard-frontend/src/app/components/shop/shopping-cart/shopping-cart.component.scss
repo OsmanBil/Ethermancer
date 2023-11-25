@@ -1,29 +1,29 @@
-.card-my{
+.card-my {
     max-width: 240px;
-    height: 115px!important;
-    max-height: 122px!important;
+    height: 115px !important;
+    max-height: 122px !important;
 }
 
-.card-my-body{
-    display: flex!important;
-    flex-direction: row!important;
+.card-my-body {
+    display: flex !important;
+    flex-direction: row !important;
 }
 
-.card-body{
+.card-body {
     padding-left: 6px;
 }
 
-.cart{
+.cart {
     display: flex;
     flex-direction: row;
 }
 
-.info{
+.info {
     margin-left: 3px;
 }
 
-p{
-    margin-bottom: 0px!important;
+p {
+    margin-bottom: 0px !important;
 }
 
 .empty-cart-message {
@@ -31,30 +31,69 @@ p{
     padding: 20px;
     font-size: 20px;
     color: red;
- }
- 
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.fadeIn {
+    display: block;
+    animation-name: fadeIn;
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-fill-mode: forwards; // Stellt sicher, dass das Element im Endzustand der Animation bleibt
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 @media (max-width: 768px) {
     .card-my {
         width: 200px;
-        max-height: 122px!important;
-        display: flex!important;
-        flex-direction: row!important;
-    }
-    img{
-        max-width: 80px!important;
-        max-height: 120px!important;
-    }
-    .row{
-        max-width: 80%!important;
-        width: auto!important;
-    }
-    .card-my-body{
-        display: flex!important;
-        flex-direction: row!important;
+        max-height: 122px !important;
+        display: flex !important;
+        flex-direction: row !important;
     }
 
-    .cart{
+    img {
+        max-width: 80px !important;
+        max-height: 120px !important;
+    }
+
+    .row {
+        max-width: 80% !important;
+        width: auto !important;
+    }
+
+    .card-my-body {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .cart {
         display: flex;
         flex-direction: column;
-    }    
+    }
 }
