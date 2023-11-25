@@ -28,8 +28,6 @@ export class UserService {
     return this.http.get<User[]>(`${this.BASE_URL}/users`);
   }
 
-  // Füge weitere Methoden hinzu, wenn benötigt (z.B. updateUser, deleteUser)
-
   loginUser(userData: {
     username: string;
     password: string;

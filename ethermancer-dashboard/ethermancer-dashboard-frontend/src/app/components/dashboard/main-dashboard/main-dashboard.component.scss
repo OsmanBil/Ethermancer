@@ -83,22 +83,15 @@
   }
 }
 
-
-/* CSS-Regeln für Bildschirmbreiten von weniger als 750 Pixeln */
 @media (max-width: 750px) {
   .chart-container-line {
-    /* Hier können Sie die gewünschte Breite für das Diagramm festlegen */
     width: 300px;
-    /* Zum Beispiel 100% der Container-Breite */
   }
 
 }
 
-/* CSS-Regeln für Bildschirmbreiten von mehr als 750 Pixeln */
 @media (min-width: 751px) {
   .chart-container-line {
-    /* Hier können Sie die Breite beibehalten oder anpassen, wenn der Bildschirm größer als 750px ist */
     width: 600px;
-    /* Beibehaltung der Breite von 300px oder Anpassung nach Bedarf */
   }
 }

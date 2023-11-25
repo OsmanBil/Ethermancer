@@ -64,11 +64,11 @@ export class MainDashboardComponent implements OnInit {
       rules: [
         {
           condition: {
-            maxWidth: 750, // Wenn die Bildschirmbreite 750 Pixel oder weniger beträgt
+            maxWidth: 750,
           },
           chartOptions: {
             chart: {
-              height: 300, // Passen Sie die Höhe des Diagramms für kleinere Bildschirme an
+              height: 300,
             },
           },
         },

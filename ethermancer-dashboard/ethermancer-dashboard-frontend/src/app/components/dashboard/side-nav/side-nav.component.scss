@@ -1,7 +1,6 @@
 .nav-items {
   display: flex;
-  flex-direction: column; // Stellt sicher, dass Kinder in einer Spalte angeordnet sind
- 
+  flex-direction: column;
 
   padding-top: 40px;
 
@@ -35,22 +34,22 @@
     }
   }
   .nav-footer {
-    margin-top: auto; // Schiebt den Footer nach unten
-    padding: 15px; // Einige Polsterung für den Footer
-    background-color: rgb(1, 38, 69); // Sie können dies an Ihre Designbedürfnisse anpassen
+    margin-top: auto;
+    padding: 15px;
+    background-color: rgb(1, 38, 69);
     text-align: center;
     a {
-       color: white; // Setzt die Farbe des Links
-       text-decoration: none; // Entfernt die Unterstreichung des Links
+       color: white;
+       text-decoration: none;
        &:hover {
-          text-decoration: underline; // Fügt die Unterstreichung beim Überfahren wieder hinzu
+          text-decoration: underline;
        }
     }
 
     p {
       font-size: small;
-       color: white; // Setzt die Farbe des Texts
-       margin-top: 10px; // Ein bisschen Abstand zum Link
+       color: white;
+       margin-top: 10px;
     }
  }
 

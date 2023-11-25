@@ -18,7 +18,7 @@ describe('ProductDetailsComponent', () => {
           useValue: {
             snapshot: {
               paramMap: {
-                get: () => '123', // Mock-Wert or Parameter
+                get: () => '123', // Mock-Value or Parameter
               },
             },
           },

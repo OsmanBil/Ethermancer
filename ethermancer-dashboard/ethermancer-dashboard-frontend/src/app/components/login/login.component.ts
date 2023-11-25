@@ -46,21 +46,19 @@ export class LoginComponent implements OnInit {
       },
     );
 
-    // Überprüfen Sie beim Laden der Komponente, ob der Benutzer bereits eingeloggt ist.
+   // When loading the component, check if the user is already logged in.
     if (this.authService.isLoggedIn()) {
-      // Wenn der Benutzer eingeloggt ist, leiten Sie ihn zum Dashboard weiter.
+      // If the user is logged in, redirect to the dashboard.
       this.router.navigate(['/dashboard']);
     }
   }
   onLogin() {
-    // Tatsächlichen Login-Prozess direkt starten
     this.userService.loginUser(this.loginData).subscribe(
       (response) => {
         localStorage.setItem('jwtToken', response);
         this.router.navigate(['/dashboard']);
       },
       (error) => {
-        // Sie können hier einen Fehlerstatus oder eine Fehlermeldung setzen, wenn Sie möchten
         console.error('Login fehlgeschlagen:', error);
       },
     );
@@ -75,7 +73,6 @@ export class LoginComponent implements OnInit {
   }
   handleEmailChange(newValue: string): void {
     this.emailLength = newValue.length;
-    // Einfache Überprüfung auf ein gültiges E-Mail-Format
     this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
       newValue,
     );

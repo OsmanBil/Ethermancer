@@ -44,7 +44,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitForm(): void {
-    // Abfrage der Benutzer-ID vom AuthService
+    // Query the user ID from the AuthService
     const userId = this.authService.getLoggedInUserId();
     console.error('User ID is:', userId);
     if (!userId) {
@@ -60,10 +60,10 @@ export class ShoppingCartComponent implements OnInit {
     this.orderService.placeOrder().subscribe(
       (response) => {
         console.log('Order created:', response);
-        const orderId = response.id; // Die ID der erstellten Bestellung.
+        const orderId = response.id; // The ID of the created order.
         console.log('Erzeugte Order ID:', orderId);
         if (orderId) {
-          // Nun fügen Sie jedes Produkt aus dem Warenkorb zur Bestellung hinzu.
+          // Add each product from the shopping cart to the order.
           for (const item of this.cartItems) {
             this.orderService
               .addProductToOrder(orderId, item.product.id, item.quantity)
@@ -80,9 +80,9 @@ export class ShoppingCartComponent implements OnInit {
           console.error('Order ID fehlt in der Backend-Antwort.');
         }
 
-        // Nachdem alle Produkte hinzugefügt wurden, navigieren Sie zur Bestätigungsseite.
+        // After all products are added, navigate to the confirmation page.
         this.router.navigate(['/dashboard/shop/order-confirmation']);
-        this.cartService.clearCart(); // Leeren Sie den Warenkorb, nachdem die Bestellung abgeschlossen ist.
+        this.cartService.clearCart(); // Empty the shopping cart after the order is completed.
       },
       (error) => {
         console.error('Error creating order:', error);

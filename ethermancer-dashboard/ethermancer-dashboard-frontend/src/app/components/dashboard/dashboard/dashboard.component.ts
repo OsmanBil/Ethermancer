@@ -36,15 +36,15 @@ export class DashboardComponent implements OnInit {
   checkScreenWidth(width: number) {
     if (width < 500) {
       this.isArrowVisible = true;
-      this.isNavExpanded = false; // Das Menü wird ausgeblendet, wenn die Breite weniger als 500 Pixel beträgt
+      this.isNavExpanded = false; // The menu will be hidden if the width is less than 500 pixels
     } else {
       this.isArrowVisible = false;
-      this.isNavExpanded = true; // Das Menü wird angezeigt, wenn die Breite größer oder gleich 500 Pixel ist
+      this.isNavExpanded = true; // The menu is displayed when the width is greater than or equal to 500 pixels
     }
   }
 
   toggleNav() {
-    this.isNavExpanded = !this.isNavExpanded; // Schaltet das Menü ein oder aus
+    this.isNavExpanded = !this.isNavExpanded; // Toggles the menu on or off
   }
 
   getArrowPosition(): string {

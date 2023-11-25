@@ -25,10 +25,9 @@ export class OrderService {
 
     const headers = {
       Authorization: 'Bearer ' + localStorage.getItem('jwtToken'),
-      // Andere benötigte Header...
     };
 
-    // Hier senden wir nur den Status, da das Backend so eingerichtet ist.
+    // The order data sent to the backend.
     const orderData = {
       user_id: userId,
       status: 'active',
@@ -37,20 +36,19 @@ export class OrderService {
     return this.http.post<Order>(this.baseUrl, orderData, { headers });
   }
 
-  // Methode, um ein Produkt zu einer Bestellung hinzuzufügen.
+  // Method to add a product to an order.
   addProductToOrder(orderId: number, productId: number, quantity: number) {
     const headers = {
       Authorization: 'Bearer ' + localStorage.getItem('jwtToken'),
-      // Andere benötigte Header...
     };
 
-    // Die Produktdaten, die an das Backend gesendet werden.
+    // The product data sent to the backend.
     const productData = {
       productId: productId,
       quantity: quantity,
     };
 
-    // Die URL muss die Bestell-ID enthalten, zu der das Produkt hinzugefügt wird.
+    // The URL must contain the order ID to which the product is added.
     const url = `${this.baseUrl}/${orderId}/products`;
 
     return this.http.post(url, productData, { headers });

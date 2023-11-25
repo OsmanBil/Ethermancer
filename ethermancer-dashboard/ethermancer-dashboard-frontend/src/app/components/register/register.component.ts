@@ -35,14 +35,14 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private router: Router,
-  ) {} // Injizieren Sie den Router
+  ) {}
 
   onRegister() {
-    console.log('User being sent:', this.user); // Hier wird das `user`-Objekt ausgegeben.
+    // console.log('User being sent:', this.user);
     this.userService.registerUser(this.user).subscribe((response) => {
       localStorage.setItem('jwtToken', response);
       // console.log('Token saved:', response);
-      this.router.navigate(['/dashboard']); // Weiterleitung zum Home-Bereich oder einer anderen Seite
+      this.router.navigate(['/dashboard']); // Redirect to the home area or another page
     });
   }
 
@@ -63,7 +63,7 @@ export class RegisterComponent {
   }
   handleEmailChange(newValue: string): void {
     this.emailLength = newValue.length;
-    // Einfache Überprüfung auf ein gültiges E-Mail-Format
+    // Check for a valid email format
     this.emailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
       newValue,
     );

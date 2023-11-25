@@ -7,11 +7,9 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-   
   }
 
   .side-nav {
-
     min-width: 230px;
     min-height: calc(100vh - 70px);
     background-color: #113c60;
@@ -28,8 +26,6 @@
       width: 100px;
       min-width: 100px;
     }
-
-
   }
 
   .main {
@@ -43,16 +39,13 @@
     transform: translateY(-50%);
     cursor: pointer;
     padding-top: 35px;
-
-    background-color: #113c60; // Hintergrundfarbe nach Wunsch anpassen
+    background-color: #113c60;
     clip-path: polygon(0 0, 25% 30%, 25% 70%, 0% 100%);
-    width: 80px; // Breite nach Wunsch anpassen
-    height: 100px; // Höhe nach Wunsch anpassen
-
+    width: 80px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-
 
     &:hover {
       background-color: rgb(1, 38, 69);
@@ -62,5 +55,4 @@
       display: block;
     }
   }
-
 }

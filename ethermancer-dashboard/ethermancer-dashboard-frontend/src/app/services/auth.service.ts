@@ -17,15 +17,14 @@ interface DecodedToken {
 export class AuthService {
   constructor(private router: Router) {}
 
-  // Überprüft, ob der Benutzer eingeloggt ist
   isLoggedIn(): boolean {
     const token = localStorage.getItem('jwtToken');
     return !!token;
   }
 
   logout() {
-    localStorage.removeItem('jwtToken'); // oder den Namen, den Sie für das Token verwendet haben
-    this.router.navigate(['/login']); // leitet den Benutzer zur Login-Seite weiter
+    localStorage.removeItem('jwtToken');
+    this.router.navigate(['/login']);
   }
 
   getLoggedInUserName(): string | null {
