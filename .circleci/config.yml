@@ -30,6 +30,9 @@ jobs:
           name: Run Backend Lint
           command: npm run dashboard-backend:lint
       - run:
+          name: Run Backend Tests
+          command: npm run dashboard-backend:test
+      - run:
           name: Zip the Application
           command: zip -r application.zip server.js package.json database.js handlers/ models/
       - run:
@@ -55,6 +58,9 @@ jobs:
           name: Run Dashboard Lint
           command: npm run dashboard:lint
       - run:
+          name: Run Dashboard Tests
+          command: npm run dashboard:test
+      - run:
           name: Dashboard Build
           command: npm run dashboard:build
       - run:
@@ -76,6 +82,9 @@ jobs:
       - run:
           name: Run Website Lint
           command: npm run website:lint
+      - run:
+          name: Run Website Tests
+          command: npm run website:test
       - run:
           name: Website Build
           command: npm run website:build
