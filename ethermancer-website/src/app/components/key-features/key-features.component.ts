@@ -7,7 +7,6 @@ import * as AOS from 'aos';
   styleUrls: ['./key-features.component.scss'],
 })
 export class KeyFeaturesComponent implements OnInit {
-
   ngOnInit() {
     AOS.init();
   }

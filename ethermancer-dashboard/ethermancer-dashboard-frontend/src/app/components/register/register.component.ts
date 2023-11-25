@@ -5,7 +5,6 @@ import { User } from '../../models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsComponent } from '../terms/terms.component';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -38,7 +37,7 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   onRegister() {
@@ -52,7 +51,7 @@ export class RegisterComponent {
 
   openTermsDialog(): void {
     this.dialog.open(TermsComponent, {
-      width: '500px', 
+      width: '500px',
     });
   }
 

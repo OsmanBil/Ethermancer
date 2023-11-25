@@ -7,7 +7,6 @@ import * as AOS from 'aos';
   styleUrls: ['./roadmap.component.scss'],
 })
 export class RoadmapComponent implements OnInit {
-
   ngOnInit() {
     AOS.init();
   }

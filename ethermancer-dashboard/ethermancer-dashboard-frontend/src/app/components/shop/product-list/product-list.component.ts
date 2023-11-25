@@ -37,10 +37,9 @@ export class ProductListComponent implements OnInit {
   onProductAdded(product: Product): void {
     this.addedProductName = product.name;
     this.toastClass = 'fadeIn'; // Start Fade-In-Animation
-  
+
     setTimeout(() => {
       this.toastClass = 'fadeOut'; // Start Fade-Out-Animation
     }, 3000);
   }
-  
 }

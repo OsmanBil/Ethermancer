@@ -23,7 +23,7 @@ export class ProductDetailsComponent {
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {
     this.product = new Product();
   }
@@ -32,12 +32,11 @@ export class ProductDetailsComponent {
     this.loadData();
   }
 
-
   addToCart(product: Product): void {
     this.cartService.addToCart(this.product, +this.selectedQuantity);
     this.addedProductName = product.name;
     this.toastClass = 'fadeIn'; // Start Fade-In-Animation
-  
+
     setTimeout(() => {
       this.toastClass = 'fadeOut'; // Start Fade-Out-Animation
     }, 3000);
@@ -63,7 +62,9 @@ export class ProductDetailsComponent {
       (jsonData: Product[]) => {
         this.products = jsonData;
         // console.log('Fetched products:', this.products); // Log the fetched products
-        this.product = this.products.find((product: Product) => product.id === id)!;
+        this.product = this.products.find(
+          (product: Product) => product.id === id,
+        )!;
       },
       (error: unknown) => {
         console.error('Failed to fetch the product data:', error);
@@ -71,4 +72,3 @@ export class ProductDetailsComponent {
     );
   }
 }
-

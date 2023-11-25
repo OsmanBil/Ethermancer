@@ -71,7 +71,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FontAwesomeModule,
     ChartModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [CartService, DecimalPipe, OrderService, AuthService],
   bootstrap: [AppComponent],

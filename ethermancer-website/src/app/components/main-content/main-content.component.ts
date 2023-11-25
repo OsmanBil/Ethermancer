@@ -70,9 +70,8 @@ export class MainContentComponent implements OnInit, OnDestroy {
           (scrollTop - (parallaxContainer as HTMLElement).offsetTop) * 0.4;
 
         if (parallaxDiv) {
-          (
-            parallaxDiv as HTMLElement
-          ).style.transform = `translate3d(0, ${parallaxOffset}px, 0)`;
+          (parallaxDiv as HTMLElement).style.transform =
+            `translate3d(0, ${parallaxOffset}px, 0)`;
         } else {
           console.warn('Parallax div not found.');
         }

@@ -91,7 +91,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     Angulartics2Module.forRoot(),
     FormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -20,5 +20,4 @@ export class HeaderComponent {
   updateTotalQuantity(): void {
     this.totalQuantity = this.cartService.getTotalQuantity();
   }
-
 }

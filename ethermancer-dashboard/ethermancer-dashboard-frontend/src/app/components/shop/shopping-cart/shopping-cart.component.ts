@@ -99,7 +99,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItems = this.cartService.getCart();
     this.removedProductName = product.name;
     this.toastClass = 'fadeIn'; // Start Fade-In-Animation
-  
+
     setTimeout(() => {
       this.toastClass = 'fadeOut'; // Start Fade-Out-Animation
     }, 3000);

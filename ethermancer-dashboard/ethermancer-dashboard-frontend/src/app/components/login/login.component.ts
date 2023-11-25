@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       },
     );
 
-   // When loading the component, check if the user is already logged in.
+    // When loading the component, check if the user is already logged in.
     if (this.authService.isLoggedIn()) {
       // If the user is logged in, redirect to the dashboard.
       this.router.navigate(['/dashboard']);

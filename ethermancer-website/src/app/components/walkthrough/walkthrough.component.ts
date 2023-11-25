@@ -7,7 +7,6 @@ import * as AOS from 'aos';
   styleUrls: ['./walkthrough.component.scss'],
 })
 export class WalkthroughComponent implements OnInit {
-
   ngOnInit() {
     AOS.init();
   }

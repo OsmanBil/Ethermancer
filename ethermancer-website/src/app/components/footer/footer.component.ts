@@ -8,13 +8,11 @@ import { TermsComponent } from '../terms/terms.component';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  constructor(
-    public dialog: MatDialog
-  ) {}
+  constructor(public dialog: MatDialog) {}
 
   openTermsDialog(): void {
     this.dialog.open(TermsComponent, {
-      width: '500px', 
+      width: '500px',
     });
   }
 }
