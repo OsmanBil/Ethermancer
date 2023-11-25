@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { OrderService } from '../../services/order.service';
-import { Order } from '../../models/order';
+import { OrderService } from '../../../services/order.service';
+import { Order } from '../../../models/order';
 
 @Component({
   selector: 'app-order-confirmation',

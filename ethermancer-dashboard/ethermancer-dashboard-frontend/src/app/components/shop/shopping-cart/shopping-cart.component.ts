@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService, CartItem } from '../../services/cart.service';
-import { OrderService } from '../../services/order.service';
+import { CartService, CartItem } from '../../../services/cart.service';
+import { OrderService } from '../../../services/order.service';
 // import { Order } from '../../models/order';
 import { Router } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Product } from 'src/app/models/product';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-shopping-cart',
