@@ -3,8 +3,7 @@
     position: relative;
     text-align: center;
     padding: 25px;
-    z-index: 2; /* higher z-index than the footer to overlay it */
-
+    z-index: 2; 
     form{
         display: flex;
         align-items: center;
