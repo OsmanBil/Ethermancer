@@ -13,6 +13,9 @@ export class ProductDetailsComponent {
   product: Product;
   selectedQuantity: number = 1;
   products: Product[] = [];
+  public showToast: boolean = false;
+  addedProductName: string = '';
+  toastClass: string = 'hidden';
 
   private BASE_URL: string =
     'http://aws-testumgebung-env.eba-szbqhywe.us-east-1.elasticbeanstalk.com'; // Backend-Server URL (local)
@@ -29,9 +32,15 @@ export class ProductDetailsComponent {
     this.loadData();
   }
 
+
   addToCart(product: Product): void {
     this.cartService.addToCart(this.product, +this.selectedQuantity);
-    alert(`The product "${product.name}" has been added to the shopping cart.`);
+    this.addedProductName = product.name;
+    this.toastClass = 'fadeIn'; // Start Fade-In-Animation
+  
+    setTimeout(() => {
+      this.toastClass = 'fadeOut'; // Start Fade-Out-Animation
+    }, 3000);
   }
 
   // async loadData(): Promise<void> {
