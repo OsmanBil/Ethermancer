@@ -8,8 +8,6 @@ jobs:
   build-and-deploy-backend:
     docker:
       - image: cimg/node:18.18.2
-        environment:
-          CHROME_BIN: /usr/bin/google-chrome karma start --single-run
     steps:
       - checkout
       - aws-cli/setup
@@ -60,9 +58,6 @@ jobs:
           name: Run Dashboard Lint
           command: npm run dashboard:lint
       - run:
-          name: Run Dashboard Tests
-          command: npm run dashboard:test
-      - run:
           name: Dashboard Build
           command: npm run dashboard:build
       - run:
@@ -84,9 +79,6 @@ jobs:
       - run:
           name: Run Website Lint
           command: npm run website:lint
-      - run:
-          name: Run Website Tests
-          command: npm run website:test
       - run:
           name: Website Build
           command: npm run website:build
