@@ -12,7 +12,7 @@ import { ProfileComponent } from './components/dashboard/profile/profile.compone
 import { MainDashboardComponent } from './components/dashboard/main-dashboard/main-dashboard.component';
 import { BotsComponent } from './components/dashboard/bots/bots.component';
 import { ShopComponent } from './components/shop/shop/shop.component';
-import { TermsComponent } from './components/dashboard/terms/terms.component';
+import { TermsComponent } from './components/terms/terms.component';
 
 const shopRoutes: Routes = [
   { path: '', redirectTo: 'product-list', pathMatch: 'full' },

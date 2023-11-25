@@ -30,9 +30,11 @@ import { BotsComponent } from './components/dashboard/bots/bots.component';
 import { MainDashboardComponent } from './components/dashboard/main-dashboard/main-dashboard.component';
 import { ShopComponent } from './components/shop/shop/shop.component';
 import { ChartModule } from 'angular-highcharts';
-import { TermsComponent } from './components/dashboard/terms/terms.component';
+import { TermsComponent } from './components/terms/terms.component';
 import { OrderService } from './services/order.service';
 import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     FontAwesomeModule,
     ChartModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [CartService, DecimalPipe, OrderService, AuthService],
   bootstrap: [AppComponent],

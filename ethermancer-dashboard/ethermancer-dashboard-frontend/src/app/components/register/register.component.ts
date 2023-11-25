@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router'; // Importieren Sie Router
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
+import { MatDialog } from '@angular/material/dialog';
+import { TermsComponent } from '../terms/terms.component';
+
 
 @Component({
   selector: 'app-register',
@@ -35,6 +38,7 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private router: Router,
+    public dialog: MatDialog
   ) {}
 
   onRegister() {
@@ -43,6 +47,12 @@ export class RegisterComponent {
       localStorage.setItem('jwtToken', response);
       // console.log('Token saved:', response);
       this.router.navigate(['/dashboard']); // Redirect to the home area or another page
+    });
+  }
+
+  openTermsDialog(): void {
+    this.dialog.open(TermsComponent, {
+      width: '500px', 
     });
   }
 
