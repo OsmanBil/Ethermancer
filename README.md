@@ -1,4 +1,3 @@
-<a name="top"></a>
 # Ethermancer - Crypto Trading Bot
 This project is a learning project only and is not intended for public use
 
@@ -10,6 +9,9 @@ The project consists of three main parts:
 - Bot Dashboard with Shop: An Angular-based dashboard where users can manage their bot settings, view trading analytics, and purchase additional features or services.
 - Backend: Powered by Node.js, it handles the core logic, trading algorithms, and integrates with various crypto exchanges.
 
+**Note:** Currently, the bot integration is not yet implemented, and the dashboard displays only example data. Additionally, the shop functionality is only simulated at this stage.
+
+For detailed information on App_dependencies, Infrastructure, and Pipeline, please refer to the documentation in the Doc folder.
 
 Website-Link: http://ethermancer-website.s3-website-us-east-1.amazonaws.com/
 
@@ -65,10 +67,28 @@ Ethermancer-Dashboard-Frontend: `cd ethermancer-dashboard/ethermancer-dashboard-
 
 Ethermancer-Dashboard-Backend: `cd ethermancer-dashboard/ethermancer-dashboard-backend && npm run test`
 
+# Usage
+
+No Usage - Ethermancer is a learn project
+[(Back to Overview)](#overview)
+
 ## Built With
 
 - [Angular](https://angular.io/) - Single Page Application Framework
 - [Node](https://nodejs.org) - Javascript Runtime
 - [Express](https://expressjs.com/) - Javascript API Framework
+
+## Future Plans
+
+As Ethermancer continues to evolve, we have several exciting features and enhancements planned for future releases. These include:
+
+- **Bot Integration:** The core functionality of the Ethermancer project, the integration of the trading bot, is under development. This feature will enable automated trading based on advanced algorithms, providing a more dynamic and efficient trading experience for users.
+
+- **Shop Functionality:** We plan to fully implement the shop feature within the dashboard. This will allow users to purchase additional features or services, enhancing their trading capabilities and experience.
+
+- **AI-Powered Chatbot:** To improve user support and engagement, we are developing an AI-powered chatbot. This chatbot will assist users with FAQs and guide them in using different aspects of the product more effectively. It aims to provide instant, intelligent responses to user queries, making the user experience smoother and more interactive.
+
+These updates are part of our commitment to making Ethermancer a more robust and user-friendly platform for crypto trading. Stay tuned for more updates and enhancements as we continue to improve and expand our offerings.
+
 
 [(Back to Overview)](#overview)
