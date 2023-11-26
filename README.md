@@ -1,8 +1,9 @@
-# Ethermancer - Crypto Trading BotEthermancer 
+# Ethermancer - Crypto Trading Bot
 This project is a learning project only and is not intended for public use
 
 Overview:
-Ethermancer is a state-of-the-art crypto trading bot designed to provide users with a seamless trading experience. The project consists of three main parts:
+Ethermancer is a state-of-the-art crypto trading bot designed to provide users with a seamless trading experience. 
+The project consists of three main parts:
 
 - Corporate Website: Built using Angular, it showcases the project's features, benefits, and other relevant information.
 - Bot Dashboard with Shop: An Angular-based dashboard where users can manage their bot settings, view trading analytics, and purchase additional features or services.
