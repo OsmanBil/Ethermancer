@@ -80,13 +80,17 @@ No Usage - Ethermancer is a learn project
 
 ## Future Plans
 
-As Ethermancer continues to evolve, we have several exciting features and enhancements planned for future releases. These include:
+As Ethermancer continues to evolve, i have several exciting features and enhancements planned for future releases. These include:
 
 - **Bot Integration:** The core functionality of the Ethermancer project, the integration of the trading bot, is under development. This feature will enable automated trading based on advanced algorithms, providing a more dynamic and efficient trading experience for users.
 
 - **Shop Functionality:** We plan to fully implement the shop feature within the dashboard. This will allow users to purchase additional features or services, enhancing their trading capabilities and experience.
 
 - **AI-Powered Chatbot:** To improve user support and engagement, we are developing an AI-powered chatbot. This chatbot will assist users with FAQs and guide them in using different aspects of the product more effectively. It aims to provide instant, intelligent responses to user queries, making the user experience smoother and more interactive.
+
+- **Standalone Subscribe Function with Dashboard:** I'am working on a proper subscription function complete with its own dashboard, which can operate independently. This will give users a comprehensive way to manage their subscriptions and related services efficiently.
+
+- **Enhanced Registration Process:** The registration process is being expanded to include options such as activation via code, Google sign-in, and guest access. These enhancements aim to make access to the platform more flexible and secure.
 
 These updates are part of our commitment to making Ethermancer a more robust and user-friendly platform for crypto trading. Stay tuned for more updates and enhancements as we continue to improve and expand our offerings.
 
