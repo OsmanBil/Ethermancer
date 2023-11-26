@@ -70,3 +70,4 @@ Ethermancer-Dashboard-Backend: `cd ethermancer-dashboard/ethermancer-dashboard-b
 - [Node](https://nodejs.org) - Javascript Runtime
 - [Express](https://expressjs.com/) - Javascript API Framework
 
+[(Back to top)](#Ethermancer - Crypto Trading Bot)
